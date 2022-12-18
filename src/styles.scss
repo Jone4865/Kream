@@ -1,0 +1,451 @@
+$undelLine: underline;
+// text-decoration
+
+.Header {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+}
+
+// HeaderTop
+.HT {
+  width: 100%;
+  height: 23px;
+  display: flex;
+  justify-content: space-around;
+  color: rgba(90, 85, 85, 0.956);
+  font-size: 12px;
+  justify-content: flex-end;
+  div {
+    margin: 10px 10px 0 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  border-bottom: solid 1px #dcdcdc;
+  padding-bottom: 10px;
+}
+
+// HeaderBottom
+.HB {
+  height: 66px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.742);
+  div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin: 10px 20px;
+    div {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  border-bottom: solid 1px #dcdcdc;
+}
+
+.Logo {
+  width: 125px;
+  margin-left: 25px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.MobileIcon {
+  font-size: 29px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+// ----
+.Body {
+}
+
+.AD {
+}
+
+.swiper-button-next {
+  color: black;
+}
+
+.swiper-button-prev {
+  color: black;
+}
+
+.swiper-pagination-bullet {
+  background-color: white;
+}
+
+.ADImg {
+  width: 100%;
+  height: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.BodyMenu {
+  height: 310px;
+  margin-top: 40px;
+}
+
+.Goods {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.BrandFocus {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+.MidAD {
+  max-height: 430px;
+  height: 45vw;
+  width: 100%;
+  margin-bottom: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Peoples {
+  max-height: 365px;
+  height: 35vw;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.MenuBodyinPc {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  height: 145px;
+}
+
+.MenuElementinPc {
+  width: 100%;
+  height: 140px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  img {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  div {
+    display: flex;
+    margin: 0 auto 15px auto;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.MenuElementinNonPc {
+  width: 100%;
+  height: 130px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  img {
+    width: 100%;
+    height: 100px;
+    border-radius: 100%;
+  }
+  div {
+    display: flex;
+    margin: auto;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.DivName {
+  font-weight: bold;
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.DivText {
+  font-size: 14px;
+  color: gray;
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.GoodsElement {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: flex-start;
+  margin: auto 10px;
+  -ms-overflow-style: none;
+
+  img {
+    background-color: rgba(248, 206, 206, 0.239);
+    border-radius: 8px;
+    width: 24vw;
+    max-width: 280px;
+    min-width: 190px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.GoodsElement::-webkit-scrollbar{
+  display:none;
+}
+
+
+.GoodsBody {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  div {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.GoodsMaker {
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: medium;
+  text-decoration: underline;
+  display: flex;
+}
+
+.GoodsPrice {
+  font-weight: bold;
+}
+
+.moreButton {
+  width: 100px;
+  margin: 30px auto;
+  background-color: white;
+  height: 40px;
+  border: solid 1px rgba(128, 128, 128, 0.36);
+  border-radius: 8px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.GoodsContent {
+  width: 24vw;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.Now {
+  font-size: 12px;
+  color: rgba(128, 128, 128, 0.719);
+}
+
+.Brand {
+  background-color: #c2c0f458;
+  color: rgb(144, 138, 233);
+  text-align: center;
+  padding: 3px 2px;
+  font-size: 11px;
+  width: 53px;
+  margin: 4px 2px;
+}
+
+.Speed {
+  background-color: #c0f4c058;
+  color: rgb(31, 201, 90);
+  text-align: center;
+  padding: 3px 2px;
+  font-size: 11px;
+  width: 53px;
+  margin: 4px 2px;
+}
+
+.Navigater {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  text-align: center;
+  justify-content: center;
+  border: solid 1px rgba(128, 128, 128, 0.234);
+  background-color: white;
+}
+// ----
+// FooterTop
+.FT {
+  color: white;
+  width: 100%;
+}
+
+.ServiceGuide {
+  padding: 30px 0;
+  background-image: url("../public/img/Footer/footerLeft.png");
+  background-color: rgba(60, 58, 58, 0.908);
+  background-size: 350px;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 140px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Download {
+  padding: 30px 0;
+  background-image: url("../public/img/Footer/footerRight.png");
+  background-color: rgb(48, 45, 45);
+  background-size: 350px;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 140px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.FooterTopButton {
+  border: solid 1px white;
+  width: 60px;
+  font-size: 13px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.FooterMidButton {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 35px;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Detail {
+  color: rgba(128, 128, 128, 0.96);
+  font-size: 14px;
+  margin: 15px 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Line {
+  width: 100%;
+  border-top: solid 1px rgba(128, 128, 128, 0.216);
+  margin: 30px auto;
+}
+
+// FooterMid
+.FM {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px rgba(128, 128, 128, 0.217);
+  margin: auto;
+  padding: 10px 0 25px 0;
+}
+
+// FooterBottom
+.FB {
+  width: 95%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+//FooterBottomLine
+.FBLine1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.FBLine1Body {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  div {
+    margin: 30px 20px 0 0;
+    font-size: 15px;
+  }
+}
+
+.FBLine2 {
+  font-size: 13px;
+  color: rgba(128, 128, 128, 0.969);
+  span {
+    text-decoration: underline;
+  }
+  white-space: pre-wrap;
+}
+
+.FBLine3 {
+  font-size: 12px;
+  color: rgba(128, 128, 128, 0.668);
+  span {
+    text-decoration: underline;
+  }
+}
+
+.FIcon {
+  font-size: 25px;
+  padding: 15px 5px 0 0;
+  * {
+    margin: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.Hover {
+  div {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
