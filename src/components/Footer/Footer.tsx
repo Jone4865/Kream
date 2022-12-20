@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles.scss";
+import "./Footer.scss";
 import { useMediaQuery } from "react-responsive";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -8,12 +8,13 @@ import { RiKakaoTalkFill } from "react-icons/ri";
 
 function Footer() {
   const isPc = useMediaQuery({
-    query: "(min-width: 770px) and (max-width: 3000px)",
+    query: "(min-width: 770px) and (max-width: 1920px)",
   });
+  
   return (
     <div>
-      <div className="FT" style={{ display: isPc ? "flex" : "" }}>
-        <div className="ServiceGuide" style={{ width: isPc ? "50%" : "100%" }}>
+      <div className="footerTop" style={{ display: isPc ? "flex" : "" }}>
+        <div className="serviceGuide" style={{ width: isPc ? "50%" : "100%" }}>
           <div
             style={{
               fontSize: "13px",
@@ -29,13 +30,13 @@ function Footer() {
             <div>서비스 소개를 확인해보세요.</div>
           </div>
           <div
-            className="FooterTopButton"
+            className="footerTopButton"
             style={{ marginTop: isPc ? "13px" : "15px", marginLeft:"30px" }}
           >
             서비스 안내
           </div>
         </div>
-        <div className="Download" style={{ width: isPc ? "50%" : "100%" }}>
+        <div className="download" style={{ width: isPc ? "50%" : "100%" }}>
           <div
             style={{
               fontSize: "13px",
@@ -51,7 +52,7 @@ function Footer() {
             <div>한정판 스니커즈를 FLEX 하세요!</div>
           </div>
           <div
-            className="FooterTopButton"
+            className="footerTopButton"
             style={{ marginTop: isPc ? "13px" : "15px", marginLeft:"30px" }}
           >
             앱 설치하기
@@ -59,27 +60,27 @@ function Footer() {
         </div>
       </div>
       <div
-        className="FM"
-        style={{ flexDirection: isPc !== true ? "column-reverse" : "row" }}
+        className="footerMid"
+        style={{ flexDirection: !isPc ? "column-reverse" : "row" }}
       >
         <div style={{ display: "flex" }}>
           <div style={{ margin: "30px 15px" }}>
             <div style={{ fontWeight: "bold", marginBottom: "5px" }}>
               이용안내
             </div>
-            <div className="Detail">검수기준</div>
-            <div className="Detail">이용정책</div>
-            <div className="Detail">페널티 정책</div>
-            <div className="Detail">커뮤니티 가이드라인</div>
+            <div className="detail">검수기준</div>
+            <div className="detail">이용정책</div>
+            <div className="detail">페널티 정책</div>
+            <div className="detail">커뮤니티 가이드라인</div>
           </div>
           <div style={{ margin: "30px 40px 20px 90px" }}>
             <div style={{ fontWeight: "bold", marginBottom: "5px" }}>
               고객지원
             </div>
-            <div className="Detail">공지사항</div>
-            <div className="Detail">서비스 소개</div>
-            <div className="Detail">쇼룸 안내</div>
-            <div className="Detail">판매자 방문접수</div>
+            <div className="detail">공지사항</div>
+            <div className="detail">서비스 소개</div>
+            <div className="detail">쇼룸 안내</div>
+            <div className="detail">판매자 방문접수</div>
           </div>
         </div>
         <div style={{ padding: "30px 10px" }}>
@@ -101,26 +102,26 @@ function Footer() {
           <div style={{ fontSize: "13px", margin: "10px 0 20px 0" }}>
             1:1 문의하기는 앱에서만 가능합니다.
           </div>
-          <button className="FooterMidButton">자주 묻는 질문</button>
+          <button className="footerMidButton">자주 묻는 질문</button>
         </div>
       </div>
       {isPc ? (
-        <div className="FB">
-          <div className="FBLine1">
-            <div className="FBLine1Body Hover">
+        <div className="footerBottom">
+          <div className="footerBottomLine1">
+            <div className="footerBottomLine1Body Hover">
               <div>회사소개</div>
               <div>인재채용</div>
               <div>제휴제안</div>
               <div>이용약관</div>
               <div style={{ fontWeight: "bold" }}>개인정보처리방침</div>
             </div>
-            <div className="FIcon">
+            <div className="footerIcon">
               <AiOutlineInstagram />
               <BsFacebook />
               <RiKakaoTalkFill />
             </div>
           </div>
-          <div className="FBLine2 Hover">
+          <div className="footerBottomLine2 Hover">
             크림 주식회사 · 대표 김창욱 {"   "}사업자등록번호 : 570-88-01618{" "}
             <span>사업자정보확인</span>
             {"     "}통신판매업 : 제 2021-성남분당C-0093호
@@ -131,13 +132,13 @@ function Footer() {
             <div style={{ fontWeight: "bold", fontSize: "12px" }}>
               신한은행 채무지급보증 안내
             </div>
-            <div className="FBLine2">
+            <div className="footerBottomLine2">
               당사는 고객님의 현금 결제 금액에 대해 신한은행과 채무지급보증
               계약을 체결하여 안전거래를 보장하고 있습니다.{" "}
               <span>서비스가입 사실 확인</span>
             </div>
           </div>
-          <div className="FBLine3">
+          <div className="footerBottomLine3">
             크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별
             판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다.
           </div>
@@ -148,23 +149,23 @@ function Footer() {
               marginBottom: "50px",
             }}
           >
-            <div className="FBLine3">
+            <div className="footerBottomLine3">
               단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에
               있습니다.
             </div>
-            <div className="FBLine3">© KREAM Corp.</div>
+            <div className="footerBottomLine3">© KREAM Corp.</div>
           </div>
         </div>
       ) : (
-        <div className="FB">
-          <div className="FBLine1Body Hover">
+        <div className="footerBottom">
+          <div className="footerBottomLine1Body Hover">
             <div>회사소개</div>
             <div>인재채용</div>
             <div>이용약관</div>
             <div style={{ fontWeight: "bold" }}>개인정보처리방침</div>
           </div>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div className="FIcon" style={{marginLeft: isPc ? "0" : "-10px"}}>
+            <div className="footerIcon" style={{marginLeft: isPc ? "0" : "-10px"}}>
               <AiOutlineInstagram />
               <BsFacebook />
               <RiKakaoTalkFill />
@@ -175,7 +176,7 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="FBLine3">
+          <div className="footerBottomLine3">
             크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별
             판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단,
             거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다.

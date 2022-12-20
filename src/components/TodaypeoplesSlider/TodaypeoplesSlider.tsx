@@ -8,11 +8,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+import "../Body/Body.scss"
+
 interface IId {
   id: number;
 }
 
-export default () => {
+function TodaypeoplesSlider () {
   const GetData = gql`
     query getData {
       todaypeople {
@@ -37,7 +39,8 @@ if (error) return <p className="error">Error :(</p>;
         navigation
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
-        style={{ width: "100%", height: "45vw", maxHeight: "480px", display:"flex", justifyContent: "space-between" }}
+        style={{ width: "100%", height: "30vw", maxHeight: "480px", display:"flex", justifyContent: "space-between", paddingTop:"30px"}}
+        className="MidSlider"
       >
         {data?.todaypeople?.map(({ id }: IId) => {
           return (
@@ -48,14 +51,15 @@ if (error) return <p className="error">Error :(</p>;
                   data?.todaypeople[id - 1]?.imgName +
                   ".jpg"
                 }
-                style={{width:"17vw", height:"22vw", borderRadius:"8px", maxWidth:"200px", maxHeight:"250px"}}
+                style={{width:"17vw", height:"22vw", borderRadius:"8px", maxWidth:"200px", maxHeight:"250px", marginBottom:"20px"}}
               />
-              <div style={{position:"absolute", bottom:"33%", left:"5%", color:"white", fontSize:"13px"}}>@{data?.todaypeople[id - 1]?.nickname}</div>
+              <div style={{position:"absolute", bottom:"15%", left:"5%", color:"white", fontSize:"13px"}}>@{data?.todaypeople[id - 1]?.nickname}</div>
             </SwiperSlide>
           );
         })}
-        ...
       </Swiper>
     </>
   );
 };
+
+export default TodaypeoplesSlider;

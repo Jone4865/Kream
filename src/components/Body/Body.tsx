@@ -1,13 +1,26 @@
 import React, { useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import BannerSlider from "../Slider/BannerSlider";
-import { useQuery, gql } from "@apollo/client";
-import { AiFillThunderbolt } from "react-icons/ai";
+import { useMediaQuery } from "react-responsive"; // pc여부 확인 모듈
+
+import { useQuery, gql } from "@apollo/client"; // 서버단
+
+import { AiFillThunderbolt } from "react-icons/ai"; // 아이콘들
 import { AiFillCheckCircle } from "react-icons/ai";
 import { GrLinkTop } from "react-icons/gr";
 import { BsBookmark } from "react-icons/bs";
-import StylepicksSlider from "../Slider/StylepicksSlider";
-import TodaypeoplesSlider from "../Slider/TodaypeoplesSlider";
+
+import StylepicksSlider from "../StylepickSlider/StylepicksSlider";
+import TodaypeoplesSlider from "../TodaypeoplesSlider/TodaypeoplesSlider";
+
+import "./Body.scss";
+import PcBanner from "../Banner/PcBanner/PcBanner";
+import NonPcBanner from "../Banner/NonPcBanner/NonPcBanner";
+
+import Menu from "./Menu/Menu";
+
+// TODO: 코드가독성이 안좋음 컴포넌트를 세분화 해야한다.
+// TODO: ul li태그를 좀 더 쓰면 좋을 듯
+// TODO: 디자인 디테일을 더 봐야한다.
+// TODO: 그리드 공부**
 
 interface IId {
   id: number;
@@ -15,7 +28,7 @@ interface IId {
 
 function Body() {
   const isPc = useMediaQuery({
-    query: "(min-width: 770px) and (max-width: 3000px)",
+    query: "(min-width: 770px) and (max-width: 1920px)",
   });
 
   const [cozyoneCount, setCozyoneCount] = useState(4);
@@ -32,7 +45,7 @@ function Body() {
   const [uniqueCount, setUniqueCount] = useState(4);
   const [wintercropCount, setWintercropCount] = useState(4);
 
-  const GetData = gql`
+  const GetDataTop = gql`
     query getData {
       formyself {
         id
@@ -42,7 +55,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       cozyone {
         id
         price
@@ -60,7 +73,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       KBO {
         id
         price
@@ -69,7 +82,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       mostpopular {
         id
         price
@@ -78,7 +91,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       mostwish {
         id
         price
@@ -87,7 +100,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       newhighest {
         id
         price
@@ -96,7 +109,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       streetmood {
         id
         price
@@ -105,7 +118,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       newin {
         id
         price
@@ -114,7 +127,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       newlowest {
         id
         price
@@ -123,7 +136,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       uncoming {
         id
         price
@@ -132,7 +145,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       unique {
         id
         price
@@ -141,7 +154,7 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
       wintercrop {
         id
         price
@@ -150,11 +163,11 @@ function Body() {
         delivery
         now
         imgName
-      },
+      }
     }
   `;
 
-  const { loading, error, data } = useQuery(GetData);
+  const { loading, error, data } = useQuery(GetDataTop);
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error :(</p>;
@@ -165,118 +178,10 @@ function Body() {
       <div className="Navigater" onClick={() => window.scrollTo(0, 0)}>
         <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
       </div>
-      <BannerSlider />
-      <div
-        className="BodyMenu"
-        style={{ borderBottom: isPc ? "None" : "solid 1px #dcdcdc" }}
-      >
-        <div>
-          <div className="MenuBodyinPc">
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu1.png"
-                    : "./img/Menu1_NonPc/Menu1.jpg"
-                }
-              />
-              <div>크림런</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu2.png"
-                    : "./img/Menu1_NonPc/Menu2.jpg"
-                }
-              />
-              <div>남성 추천</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu3.png"
-                    : "./img/Menu1_NonPc/Menu3.jpg"
-                }
-              />
-              <div>여성 추천</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu4.png"
-                    : "./img/Menu1_NonPc/Menu4.jpg"
-                }
-              />
-              <div>럭키드로우</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu5.png"
-                    : "./img/Menu1_NonPc/Menu5.jpg"
-                }
-              />
-              <div>이번주 브랜드관</div>
-            </div>
-          </div>
-          <div className="MenuBodyinPc">
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu6.png"
-                    : "./img/Menu1_NonPc/Menu6.jpg"
-                }
-              />
-              <div>정가 아래</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu7.png"
-                    : "./img/Menu1_NonPc/Menu7.jpg"
-                }
-              />
-              <div>인기 럭셔리</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu8.png"
-                    : "./img/Menu1_NonPc/Menu8.jpg"
-                }
-              />
-              <div>크리스마스</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu9.png"
-                    : "./img/Menu1_NonPc/Menu9.jpg"
-                }
-              />
-              <div>태그하고 포인트!</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img
-                src={
-                  isPc
-                    ? "./img/Menu1_pc/Menu10.png"
-                    : "./img/Menu1_NonPc/Menu10.jpg"
-                }
-              />
-              <div>수수료 할인</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {isPc ? <PcBanner /> : <NonPcBanner />}
+      <Menu menu="menu1" />
+      {!isPc ? <div className="Line"></div> : ""}
+
       <div className="Goods">
         <div className="DivName">Just Dropped</div>
         <div className="DivText">신규 등록 상품</div>
@@ -355,85 +260,18 @@ function Body() {
           <button
             className="moreButton"
             onClick={() => {
-              setJustdropCount(justdropCount + 4);
+              setJustdropCount((prev) => prev + 4);
             }}
           >
             더보기
           </button>
         )}
       </div>
-      {isPc !== true ? <div className="Line" /> : ""}
-      <div className="BrandFocus">
+      {!isPc && <div className="Line" />}
+      <div className={"BrandFocus"}>
         <div className="DivName">Brand Focus</div>
         <div className="DivText">추천 브랜드</div>
-        <div>
-          <div className="MenuBodyinPc">
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu1.png"} />
-              <div>비비안 웨스트우드</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu2.png"} />
-              <div>아크네</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu3.png"} />
-              <div>에르메스</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu4.png"} />
-              <div>샤넬</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu5.png"} />
-              <div>롤렉스</div>
-            </div>
-          </div>
-          <div className="MenuBodyinPc">
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu6.png"} />
-              <div>구찌</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu7.png"} />
-              <div>DU</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu8.png"} />
-              <div>애플</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu9.png"} />
-              <div>프라다</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu10.png"} />
-              <div>아미</div>
-            </div>
-          </div>
-          <div className="MenuBodyinPc">
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu11.png"} />
-              <div>스톤 아일랜드</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu12.png"} />
-              <div>메종 키츠네</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu13.png"} />
-              <div>몽클레르</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu14.png"} />
-              <div>루이비통</div>
-            </div>
-            <div className={isPc ? "MenuElementinPc" : "MenuElementinNonPc"}>
-              <img src={"./img/Menu2/Menu15.png"} />
-              <div>우영미</div>
-            </div>
-          </div>
-        </div>
+        <Menu menu="menu2" />
       </div>
       <img className="MidAD" src="./img/MidAd/MidAD1.jpg" />
       <div className="Goods">
@@ -523,7 +361,7 @@ function Body() {
       </div>
       <div className="Peoples">
         <div className="DivName">Style Picks!</div>
-        <StylepicksSlider/>
+        {/* <StylepicksSlider /> */}
       </div>
       <img className="MidAD" src="./img/MidAd/MidAD2.jpg" />
       <div className="Goods">
@@ -717,9 +555,7 @@ function Body() {
                     {/* <BsBookmark /> */}
                     <img
                       src={
-                        "./img/Goods/KBO/" +
-                        data?.KBO[id - 1]?.imgName +
-                        ".png"
+                        "./img/Goods/KBO/" + data?.KBO[id - 1]?.imgName + ".png"
                       }
                     />
                     <div className="GoodsMaker">
@@ -957,7 +793,7 @@ function Body() {
       </div>
       <div className="Peoples">
         <div className="DivName">오늘의 인기유저</div>
-        <TodaypeoplesSlider/>
+        {/* <TodaypeoplesSlider /> */}
       </div>
       <img className="MidAD" src="./img/MidAd/MidAD7.jpg" />
       <div className="Goods">

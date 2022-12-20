@@ -1,84 +1,66 @@
-$undelLine: underline;
-// text-decoration
-
-.Header {
-  position: fixed;
-  width: 100%;
-  background-color: white;
-  z-index: 2;
+.Line {
+  border-bottom: solid 1px rgba(128, 128, 128, 0.123);
+  margin: 10px 0 35px;
 }
 
-// HeaderTop
-.HT {
-  width: 100%;
-  height: 23px;
-  display: flex;
-  justify-content: space-around;
-  color: rgba(90, 85, 85, 0.956);
-  font-size: 12px;
-  justify-content: flex-end;
-  div {
-    margin: 10px 10px 0 10px;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  border-bottom: solid 1px #dcdcdc;
-  padding-bottom: 10px;
+
+
+
+.Cards {
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  bottom: -150px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: #fff;
+  z-index: 10;
 }
 
-// HeaderBottom
-.HB {
-  height: 66px;
+.MidSlider {
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.742);
-  div {
+  justify-content: space-between; 
+  margin: auto;
+
+  img {
+    width: 100%;
+    min-width: 100px;
+    height: 100%;
+    border-radius: 8px;
     display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    margin: 10px 20px;
-    div {
-      &:hover {
-        cursor: pointer;
-      }
+    margin: auto; 
+  }
+
+  &:not(:hover) {
+    .swiper-button-next,
+    .swiper-button-prev {
+      opacity: 0;
     }
   }
-  border-bottom: solid 1px #dcdcdc;
-}
-
-.Logo {
-  width: 125px;
-  margin-left: 25px;
   &:hover {
-    cursor: pointer;
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: black;
+      background-color: rgba(255, 255, 255, 0.718);
+      border-radius: 100%;
+      width: 30px;
+      height: 30px;
+    }
+  
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 15px;
+    }
+  
+    .swiper-button-disabled {
+      background-color: rgba(255, 255, 255, 0.718);
+      opacity: 100;
+    }
   }
-}
-
-.MobileIcon {
-  font-size: 29px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-// ----
-.Body {
-}
-
-.AD {
-}
-
-.swiper-button-next {
-  color: black;
-}
-
-.swiper-button-prev {
-  color: black;
-}
-
-.swiper-pagination-bullet {
-  background-color: white;
 }
 
 .ADImg {
@@ -89,14 +71,19 @@ $undelLine: underline;
   }
 }
 
+.Body {
+  width: 100%;
+  margin: auto;
+}
+
 .BodyMenu {
   height: 310px;
   margin-top: 40px;
 }
 
 .Goods {
-  width: 100%;
-  max-width: 1200px;
+  width: 95%;
+  // max-width: 1200px;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -122,10 +109,10 @@ $undelLine: underline;
 }
 
 .Peoples {
-  max-height: 365px;
-  height: 35vw;
+  height: 20vw;
   width: 100%;
-  max-width: 1200px;
+  min-height: 300px;
+  max-width: 1250px;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -219,10 +206,9 @@ $undelLine: underline;
   }
 }
 
-.GoodsElement::-webkit-scrollbar{
-  display:none;
+.GoodsElement::-webkit-scrollbar {
+  display: none;
 }
-
 
 .GoodsBody {
   display: flex;
@@ -306,143 +292,9 @@ $undelLine: underline;
   border: solid 1px rgba(128, 128, 128, 0.234);
   background-color: white;
 }
-// ----
-// FooterTop
-.FT {
-  color: white;
-  width: 100%;
-}
-
-.ServiceGuide {
-  padding: 30px 0;
-  background-image: url("../public/img/Footer/footerLeft.png");
-  background-color: rgba(60, 58, 58, 0.908);
-  background-size: 350px;
-  background-repeat: no-repeat;
-  background-position: right;
-  height: 140px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.Download {
-  padding: 30px 0;
-  background-image: url("../public/img/Footer/footerRight.png");
-  background-color: rgb(48, 45, 45);
-  background-size: 350px;
-  background-repeat: no-repeat;
-  background-position: right;
-  height: 140px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.FooterTopButton {
-  border: solid 1px white;
-  width: 60px;
-  font-size: 13px;
-  text-align: center;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.FooterMidButton {
-  background-color: black;
-  color: white;
-  border: none;
-  width: 100px;
-  height: 35px;
-  font-weight: bold;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.Detail {
-  color: rgba(128, 128, 128, 0.96);
-  font-size: 14px;
-  margin: 15px 0;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.Line {
-  width: 100%;
-  border-top: solid 1px rgba(128, 128, 128, 0.216);
-  margin: 30px auto;
-}
-
-// FooterMid
-.FM {
-  width: 95%;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: solid 1px rgba(128, 128, 128, 0.217);
-  margin: auto;
-  padding: 10px 0 25px 0;
-}
-
-// FooterBottom
-.FB {
-  width: 95%;
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-}
-
-//FooterBottomLine
-.FBLine1 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.FBLine1Body {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 15px;
-  div {
-    margin: 30px 20px 0 0;
-    font-size: 15px;
-  }
-}
-
-.FBLine2 {
-  font-size: 13px;
-  color: rgba(128, 128, 128, 0.969);
-  span {
-    text-decoration: underline;
-  }
-  white-space: pre-wrap;
-}
-
-.FBLine3 {
-  font-size: 12px;
-  color: rgba(128, 128, 128, 0.668);
-  span {
-    text-decoration: underline;
-  }
-}
-
-.FIcon {
-  font-size: 25px;
-  padding: 15px 5px 0 0;
-  * {
-    margin: 10px;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
 
 .Hover {
-  div {
-    &:hover {
-      cursor: pointer;
-    }
-  }
+  div,
   span {
     &:hover {
       cursor: pointer;

@@ -1,0 +1,68 @@
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+}
+
+.headerTop {
+  width: 100%;
+  height: 23px;
+  display: flex;
+  justify-content: space-around;
+  color: rgba(90, 85, 85, 0.956);
+  font-size: 12px;
+  justify-content: flex-end;
+  div {
+    margin: 10px 10px 0 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  border-bottom: solid 1px #dcdcdc;
+  padding-bottom: 10px;
+}
+
+.headerBottom {
+  height: 66px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.742);
+  div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin: 10px 20px;
+    div {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.logo {
+  width: 140px;
+  height: 45px;
+  margin-left: 15px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.pcIcon {
+  font-size: 25px;
+  margin: 5px 15px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nonPcIcon {
+  font-size: 25px;
+  margin: 5px 15px;
+  &:hover {
+    cursor: pointer;
+  }
+}

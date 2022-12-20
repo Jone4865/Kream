@@ -1,0 +1,10 @@
+.white {
+  margin-bottom: 50px;
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: black;
+  }
+  .swiper-pagination-bullet {
+    background-color: white;
+  }
+}

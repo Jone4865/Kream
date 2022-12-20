@@ -1,12 +1,12 @@
 import React from 'react';
-import Body from '../components/Main/Body';
-import Footer from '../components/Main/Footer';
-import Header from '../components/Main/Header';
+import Body from '../components/Body/Body';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
 
 function Main() {
   return (
     <div>
-      <Header/>
+      <Header />
       <Body/>
       <Footer/>
     </div>
