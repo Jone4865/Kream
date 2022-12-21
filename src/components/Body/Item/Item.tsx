@@ -97,7 +97,7 @@ function Item({ item, name, divName, divText }: Iprops) {
       </div>
       {item?.length <= items ? (
         ""
-      ) : (
+      ) : isPc ? (
         <button
           className="moreButton"
           onClick={() => {
@@ -106,6 +106,8 @@ function Item({ item, name, divName, divText }: Iprops) {
         >
           더보기
         </button>
+      ) : (
+        ""
       )}
     </div>
   );
