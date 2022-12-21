@@ -20,7 +20,7 @@ function Body() {
     query: "(min-width: 770px) and (max-width: 1920px)",
   });
 
-  const GetDataTop = gql`
+  const GetData = gql`
     query getData {
       # 메뉴들
       menu1 {
@@ -155,8 +155,12 @@ function Body() {
   `;
 
   const [ref, inView] = useInView();
-
-  const { loading, error, data } = useQuery(GetDataTop);
+  const [page, setPage] = useState(1);
+  if (page === 1 && inView) {
+    setPage(page+1)
+  }
+  
+  const { loading, error, data } = useQuery(GetData);
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error :(</p>;
@@ -235,7 +239,8 @@ function Body() {
       />
       <div ref={ref}></div>
       {!isPc ? <div className="line" /> : ""}
-      <Item
+      {page === 2 ? <>
+        <Item
         item={data?.highest}
         name="highest"
         divName="New Highest Bids"
@@ -268,7 +273,7 @@ function Body() {
         name="end"
         divName="Your End of Year Playlist"
         divText="음악과 함께 마무리하는 2022년"
-      />
+      /></> : ''}
     </div>
   );
 }
