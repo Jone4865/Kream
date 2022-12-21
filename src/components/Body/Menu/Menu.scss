@@ -1,22 +1,24 @@
 //pc에서
-.PcMenu {
+.pcMenu {
   min-width: 780px;
-  max-width: 1300px;
-  width: 100vw;
+  max-width: 1270px;
+  width: 98vw;
   display: flex;
-  margin: auto auto 35px auto;
+  margin: auto auto 30px auto;
   flex-wrap: wrap;
   font-size: 15px;
   color: rgba(83, 79, 79, 0.938);
+  padding: 0 0;
 }
 
-.PcMenuBody {
+.pcMenuBody {
   display: flex;
   flex-direction: column;
-  margin: 0 0.3%;
-  width: 19%;
+  width: 19.5%;
+  margin: 0.25%;
+
   img {
-    width: 100%;
+    width: 94%;
     min-height: 100px;
     margin: 0 auto;
     border-radius: 8px;
@@ -28,7 +30,7 @@
 }
 
 //nonPc에서
-.NonPcMenu {
+.nonPcMenu {
   max-width: 1300px;
   width: 95vw;
   display: flex;
@@ -38,7 +40,7 @@
   color: rgba(83, 79, 79, 0.938);
 }
 
-.NonPcMenuBody {
+.nonPcMenuBody {
   display: flex;
   flex-direction: column;
   margin: 0 0.5%;

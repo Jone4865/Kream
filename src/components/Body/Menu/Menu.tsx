@@ -1,10 +1,9 @@
-import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive"; // pc여부 확인 모듈
 import "./Menu.scss";
-import { useQuery, gql } from "@apollo/client"; // 서버단
 
 type IProps = {
-  menu: string;
+  menu: any;
+  name: string;
 };
 
 type IData = {
@@ -13,48 +12,21 @@ type IData = {
   divName: string;
 };
 
-function Menu(menu: IProps) {
+function Menu({ menu, name }: IProps) {
   const isPc = useMediaQuery({
     query: "(min-width: 770px) and (max-width: 1920px)",
   });
 
-  const menu1 = gql`
-    query getData {
-      menu1 {
-        id
-        imgName
-        divName
-      }
-    }
-  `;
-
-  const menu2 = gql`
-    query getData {
-      menu2 {
-        id
-        imgName
-        divName
-      }
-    }
-  `;
-  const [Number] = useState(menu?.menu);
-  const { loading, error, data } = useQuery(
-    menu?.menu === "menu1" ? menu1 : menu2
-  );
-
-  if (loading) return <p className="loading">Loading...</p>;
-  if (error) return <p className="error">Error :(</p>;
-
   return (
-    <div className={isPc ? "PcMenu" : "NonPcMenu"}>
-      {data?.[Number]?.map(({ id, imgName, divName }: IData) => {
+    <div className={isPc ? "pcMenu" : "nonPcMenu"}>
+      {menu?.map(({ id, imgName, divName }: IData) => {
         return (
-          <div key={id} className={isPc ? "PcMenuBody" : "NonPcMenuBody"}>
+          <div key={id} className={isPc ? "pcMenuBody" : "nonPcMenuBody"}>
             <img
               src={
                 isPc
-                  ? `./img/${Number}/${Number}Pc/${imgName}.png`
-                  : `./img/${Number}/${Number}NonPc/${imgName}.jpg`
+                  ? `./img/${name}/${name}Pc/${imgName}.png`
+                  : `./img/${name}/${name}NonPc/${imgName}.jpg`
               }
               alt="menuImage"
             />
