@@ -72,7 +72,7 @@ function Body() {
         now
         imgName
       }
-      mostsharde {
+      mostshared {
         id
         price
         maker
@@ -166,7 +166,7 @@ function Body() {
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error :(</p>;
-
+console.log(data.giftideas)
   return (
     <div className="Body">
       <div style={{ height: "100px" }} />
@@ -210,8 +210,8 @@ function Body() {
       />
       <img className="midAD" src="./img/MidAd/MidAD4.jpg" />
       <Item
-        item={data?.mostsharde}
-        name="mostsharde"
+        item={data?.mostshared}
+        name="mostshared"
         divName="Most Shared Outer"
         divText="가장 많이 공유된 아우터"
       />

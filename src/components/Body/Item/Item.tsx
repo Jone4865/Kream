@@ -95,7 +95,7 @@ function Item({ item, name, divName, divText }: Iprops) {
           }
         )}
       </div>
-      {item.length <= items ? (
+      {item?.length <= items ? (
         ""
       ) : (
         <button
