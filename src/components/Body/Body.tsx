@@ -14,6 +14,7 @@ import NonPcBanner from "../Banner/NonPcBanner/NonPcBanner";
 import Menu from "./Menu/Menu"; // 컴포넌트들
 import Item from "./Item/Item";
 import MidAd from "./MidAd/MidAd";
+import Carousel from "./Carousel/Carousel";
 
 function Body() {
   const isPc = useMediaQuery({
@@ -151,6 +152,11 @@ function Body() {
         now
         imgName
       }
+      banner {
+        id
+        bottomColor
+        imgName
+      }
     }
   `;
 
@@ -168,10 +174,11 @@ function Body() {
   return (
     <div className="body">
       <div style={{ height: "100px" }} />
+      <Carousel data={data?.banner} />
       <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
         <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
       </div>
-      {isPc ? <PcBanner /> : <NonPcBanner />}
+      {/* {isPc ? <PcBanner /> : <NonPcBanner />} */}
       <Menu menu={data?.menu1} name="menu1" />
       {!isPc ? <div className="line" /> : ""}
       <Item
