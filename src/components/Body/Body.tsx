@@ -156,6 +156,7 @@ function Body() {
         id
         bottomColor
         imgName
+        backColor
       }
     }
   `;
@@ -173,12 +174,11 @@ function Body() {
 
   return (
     <div className="body">
-      <div style={{ height: "100px" }} />
+      <div style={{ height: isPc ? "95px" : "60px" }} />
       <Carousel data={data?.banner} />
       <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
         <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
       </div>
-      {/* {isPc ? <PcBanner /> : <NonPcBanner />} */}
       <Menu menu={data?.menu1} name="menu1" />
       {!isPc ? <div className="line" /> : ""}
       <Item
