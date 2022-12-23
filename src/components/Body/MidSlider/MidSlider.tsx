@@ -23,21 +23,28 @@ type IData = {
 function StylepicksSilder(data: IProps) {
   const [page, setPage] = useState(0);
 
-  const isPc = useMediaQuery({
+  const isMid = useMediaQuery({
     query: "(min-width: 970px) and (max-width: 1920px)",
   });
 
-  console.log(isPc);
+  const isPc = useMediaQuery({
+    query: "(min-width: 770px) and (max-width: 1920px)",
+  });
+
+  const isMobile = useMediaQuery({
+    query: "(min-width: 0px) and (max-width: 650px)",
+  });
+
   return (
     <div className="slider">
       <Swiper
         modules={[Navigation, Scrollbar, A11y]}
-        spaceBetween={15}
-        slidesPerView={isPc ? 6 : 5}
+        spaceBetween={10}
+        slidesPerView={isMid ? 6 : isMobile ? 3.7 : 4.5}
         navigation
         onSwiper={(swiper) => ""}
         onSlideChange={() => setPage(page + 1)}
-        className="midSlider"
+        className={isPc ? "midSliderPc" : "midSliderNonPc"}
         loop={true}
       >
         {data?.data?.map(({ id, nickname }: IData) => {
@@ -47,9 +54,10 @@ function StylepicksSilder(data: IProps) {
                 <img
                   className="icon"
                   src={`./img/peoples/iconImg/${nickname}.jpg`}
+                  alt="profileImg"
                 />
                 <img
-                  className="styleImg"
+                  className={isPc ? "styleImgPc" : "styleImgNonPc"}
                   src={`./img/peoples/styleImg/${nickname}.jpg`}
                   alt="midSliderImg"
                 />

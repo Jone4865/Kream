@@ -13,8 +13,7 @@ import Menu from "./Menu/Menu"; // 컴포넌트들
 import Item from "./Item/Item";
 import MidAd from "./MidAd/MidAd";
 import Carousel from "./Carousel/Carousel";
-import MidSlider from "../MidSlider/MidSlider";
-
+import MidSlider from "./MidSlider/MidSlider";
 
 import { Button } from "../../stories/Button";
 function Body() {
@@ -184,7 +183,12 @@ function Body() {
   return (
     <div className="body">
       <div style={{ height: isPc ? "96px" : "60px" }} />
-      <Button size="large" label="테스트" onClick={()=>alert("hi")} backgroundColor="red" />
+      <Button
+        size="large"
+        label="테스트"
+        onClick={() => alert("hi")}
+        backgroundColor="red"
+      />
       <Carousel data={data?.banner} />
       <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
         <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
@@ -210,11 +214,11 @@ function Body() {
         divName="Most Popular"
         divText="인기 상품"
       />
+      {!isPc ? <div className="line" /> : ""}
       <div className="divTitle">
         <div className="divName">Style Picks!</div>
       </div>
       <MidSlider data={data?.stylepicks} />
-      {!isPc ? <div className="line" /> : ""}
       <MidAd imgName="midAd2" />
       <Item
         item={data?.newin}
@@ -250,11 +254,11 @@ function Body() {
         divName="Suede Shoes Collection"
         divText="FW 시즌의 대표 소재!"
       />
+      {!isPc ? <div className="line" /> : ""}
       <div className="divTitle">
         <div className="divName">오늘의 인기유저</div>
       </div>
       <MidSlider data={data?.todaypeoples} />
-      {!isPc ? <div className="line" /> : ""}
       <MidAd imgName="midAd7" />
       <Item
         item={data?.lowest}

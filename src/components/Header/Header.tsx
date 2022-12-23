@@ -22,7 +22,7 @@ function Header() {
         ""
       )}
       <div className="headerBottom">
-        <img className="logo" src={"./img/Logo.png"} alt={"logoImg"} />
+        <img className="logo" src={"./img/Logo.png"} alt="logoImg" />
         {isPc ? (
           <div>
             <div>STYLE</div>

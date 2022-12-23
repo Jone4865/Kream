@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useMediaQuery } from "react-responsive"; // pc여부 확인 모듈
 import "./Carousel.scss";
-import useInterval from "../../useInterval/useInterval";
+import useInterval from "../../../hooks/useInterval/useInterval";
 
 type IProps = {
   data: any;

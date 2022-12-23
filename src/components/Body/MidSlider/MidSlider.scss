@@ -1,8 +1,8 @@
 .slider {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
-.midSlider {
+.midSliderPc {
   position: relative;
   width: 95%;
   max-width: 1200px;
@@ -37,6 +37,40 @@
   }
 }
 
+.midSliderNonPc {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 15px auto -5px auto;
+  overflow: scroll;
+  padding-bottom: 20px;
+
+  &:not(:hover) {
+    .swiper-button-next,
+    .swiper-button-prev {
+      opacity: 0;
+    }
+  }
+  &:hover {
+    .swiper-button-next,
+    .swiper-button-prev {
+      opacity: 0;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      opacity: 0;
+    }
+
+    .swiper-button-disabled {
+      opacity: 0;
+    }
+  }
+  .swiper-slide-active {
+    margin-left: 20px;
+  }
+}
+
 .cardsBody {
   display: flex;
   &:hover {
@@ -47,12 +81,14 @@
 .icon {
   position: absolute;
   width: 3.5vw;
+  height: 3.5vh;
   z-index: 1;
   border-radius: 100%;
   border: 2px solid white;
   top: 5px;
   left: 5px;
   max-width: 35px;
+  min-width: 30px;
 }
 
 .nickName {
@@ -71,7 +107,7 @@
   }
 }
 
-.styleImg {
+.styleImgPc {
   width: 100%;
   height: 23vw;
   object-fit: cover;
@@ -79,6 +115,13 @@
   min-height: 170px;
   max-height: 240px;
   max-width: 180px;
+}
+
+.styleImgNonPc {
+  object-fit: cover;
+  border-radius: 8px;
+  height: 175px;
+  width: 130px;
 }
 
 .nonStyleImg {
