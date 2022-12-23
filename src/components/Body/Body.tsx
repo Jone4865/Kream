@@ -15,6 +15,8 @@ import MidAd from "./MidAd/MidAd";
 import Carousel from "./Carousel/Carousel";
 import MidSlider from "../MidSlider/MidSlider";
 
+
+import { Button } from "../../stories/Button";
 function Body() {
   const isPc = useMediaQuery({
     query: "(min-width: 770px) and (max-width: 1920px)",
@@ -181,7 +183,8 @@ function Body() {
 
   return (
     <div className="body">
-      <div style={{ height: isPc ? "95px" : "60px" }} />
+      <div style={{ height: isPc ? "96px" : "60px" }} />
+      <Button size="large" label="테스트" onClick={()=>alert("hi")} backgroundColor="red" />
       <Carousel data={data?.banner} />
       <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
         <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
