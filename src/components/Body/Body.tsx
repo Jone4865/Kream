@@ -8,13 +8,12 @@ import { useQuery, gql } from "@apollo/client"; // 서버단
 import { GrLinkTop } from "react-icons/gr"; // 탑으로 가는 아이콘
 
 import "./Body.scss";
-import PcBanner from "../Banner/PcBanner/PcBanner";
-import NonPcBanner from "../Banner/NonPcBanner/NonPcBanner";
 
 import Menu from "./Menu/Menu"; // 컴포넌트들
 import Item from "./Item/Item";
 import MidAd from "./MidAd/MidAd";
 import Carousel from "./Carousel/Carousel";
+import MidSlider from "../MidSlider/MidSlider";
 
 function Body() {
   const isPc = useMediaQuery({
@@ -158,15 +157,23 @@ function Body() {
         imgName
         backColor
       }
+      stylepicks {
+        id
+        nickname
+      }
+      todaypeoples {
+        id
+        nickname
+      }
     }
   `;
 
   const [ref, inView] = useInView();
   const [page, setPage] = useState(1);
   if (page === 1 && inView) {
-    setPage(page+1)
+    setPage(page + 1);
   }
-  
+
   const { loading, error, data } = useQuery(GetData);
 
   if (loading) return <p className="loading">Loading...</p>;
@@ -200,6 +207,10 @@ function Body() {
         divName="Most Popular"
         divText="인기 상품"
       />
+      <div className="divTitle">
+        <div className="divName">Style Picks!</div>
+      </div>
+      <MidSlider data={data?.stylepicks} />
       {!isPc ? <div className="line" /> : ""}
       <MidAd imgName="midAd2" />
       <Item
@@ -236,6 +247,10 @@ function Body() {
         divName="Suede Shoes Collection"
         divText="FW 시즌의 대표 소재!"
       />
+      <div className="divTitle">
+        <div className="divName">오늘의 인기유저</div>
+      </div>
+      <MidSlider data={data?.todaypeoples} />
       {!isPc ? <div className="line" /> : ""}
       <MidAd imgName="midAd7" />
       <Item
@@ -246,41 +261,46 @@ function Body() {
       />
       <div ref={ref}></div>
       {!isPc ? <div className="line" /> : ""}
-      {page === 2 ? <>
-        <Item
-        item={data?.highest}
-        name="highest"
-        divName="New Highest Bids"
-        divText="새로운 즉시 판매가"
-      />
-      <MidAd imgName="midAd8" />
-      <Item
-        item={data?.upcoming}
-        name="upcoming"
-        divName="Upcoming Release"
-        divText="발매 예정"
-      />
-      <MidAd imgName="midAd9" />
-      <Item
-        item={data?.scent}
-        name="scent"
-        divName="The Scent of Winter"
-        divText="겨울을 함께 할 향수"
-      />
-      <MidAd imgName="midAd10" />
-      <Item
-        item={data?.giftideas}
-        name="giftideas"
-        divName="Affordable Gift Ideas"
-        divText="부담 없으면서도 특별한"
-      />
-      <MidAd imgName="midAd11" />
-      <Item
-        item={data?.end}
-        name="end"
-        divName="Your End of Year Playlist"
-        divText="음악과 함께 마무리하는 2022년"
-      /></> : ''}
+      {page === 2 ? (
+        <>
+          <Item
+            item={data?.highest}
+            name="highest"
+            divName="New Highest Bids"
+            divText="새로운 즉시 판매가"
+          />
+          <MidAd imgName="midAd8" />
+          <Item
+            item={data?.upcoming}
+            name="upcoming"
+            divName="Upcoming Release"
+            divText="발매 예정"
+          />
+          <MidAd imgName="midAd9" />
+          <Item
+            item={data?.scent}
+            name="scent"
+            divName="The Scent of Winter"
+            divText="겨울을 함께 할 향수"
+          />
+          <MidAd imgName="midAd10" />
+          <Item
+            item={data?.giftideas}
+            name="giftideas"
+            divName="Affordable Gift Ideas"
+            divText="부담 없으면서도 특별한"
+          />
+          <MidAd imgName="midAd11" />
+          <Item
+            item={data?.end}
+            name="end"
+            divName="Your End of Year Playlist"
+            divText="음악과 함께 마무리하는 2022년"
+          />
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

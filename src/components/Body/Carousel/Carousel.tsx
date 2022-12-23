@@ -33,7 +33,7 @@ function Carousel(data: IProps) {
       {isPc ? (
         <div className="btns">
           <div
-            className="btn-left"
+            className="btnLeft"
             style={{ color: data.data[page]?.bottomColor }}
             onClick={() => {
               setPage((prev) =>
@@ -44,7 +44,7 @@ function Carousel(data: IProps) {
             &lt;
           </div>
           <div
-            className="btn-right"
+            className="btnRight"
             style={{ color: data.data[page]?.bottomColor }}
             onClick={() => {
               setPage((prev) =>
