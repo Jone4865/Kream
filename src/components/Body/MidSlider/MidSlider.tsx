@@ -34,7 +34,7 @@ function StylepicksSilder(data: IProps) {
   const isMobile = useMediaQuery({
     query: "(min-width: 0px) and (max-width: 650px)",
   });
-
+  
   return (
     <div className="slider">
       <Swiper
