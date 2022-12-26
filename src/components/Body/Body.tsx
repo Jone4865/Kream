@@ -15,8 +15,6 @@ import MidAd from "./MidAd/MidAd";
 import MidSlider from "./MidSlider/MidSlider";
 import Carousel from "./Carousel/Carousel";
 
-import { Button } from "../../stories/Button/Button";
-
 function Body() {
   
   let isPc = false;
@@ -189,20 +187,15 @@ function Body() {
   return (
     <div className="body">
       <div style={{ height: isPc ? "96px" : "60px" }} />
-      {/* <Button
-        size="small"
-        label="테스트"
-        onClick={() => alert("hi")}
-        backgroundColor="red"
-      /> */}
-      <Carousel data={data?.banner}/>
+      <Carousel data={data?.banner} isPc={isPc}/>
       <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
         <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
       </div>
-      <Menu menu={data?.menu1} name="menu1" />
+      <Menu menu={data?.menu1} name="menu1" isPc={isPc} />
       {!isPc ? <div className="line" /> : ""}
       <Item
         item={data?.justdrop}
+        isPc={isPc}
         name="justdrop"
         divName="Just Dropped"
         divText="발매 상품"
@@ -212,10 +205,11 @@ function Body() {
         <div className="divName">Brand Focus</div>
         <div className="divText">추천 브랜드</div>
       </div>
-      <Menu menu={data?.menu2} name="menu2" />
-      <MidAd imgName="midAd1" />
+      <Menu menu={data?.menu2} name="menu2" isPc={isPc} />
+      <MidAd isPc={isPc} imgName="midAd1" />
       <Item
         item={data?.mostpopular}
+        isPc={isPc}
         name="mostpopular"
         divName="Most Popular"
         divText="인기 상품"
@@ -225,37 +219,42 @@ function Body() {
         <div className="divName">Style Picks!</div>
       </div>
       <MidSlider data={data?.stylepicks} />
-      <MidAd imgName="midAd2" />
+      <MidAd isPc={isPc} imgName="midAd2" />
       <Item
         item={data?.newin}
+        isPc={isPc}
         name="newin"
         divName="New In"
         divText="신규 등록 상품"
       />
-      <MidAd imgName="midAd3" />
+      <MidAd isPc={isPc} imgName="midAd3" />
       <Item
         item={data?.buildawinter}
+        isPc={isPc}
         name="buildawinter"
         divName="Build a Winter Wardrobe"
         divText="겨울철 꼭 필요한 매칭"
       />
-      <MidAd imgName="midAd4" />
+      <MidAd isPc={isPc} imgName="midAd4" />
       <Item
         item={data?.mostshared}
+        isPc={isPc}
         name="mostshared"
         divName="Most Shared Outer"
         divText="가장 많이 공유된 아우터"
       />
-      <MidAd imgName="midAd5" />
+      <MidAd isPc={isPc} imgName="midAd5" />
       <Item
         item={data?.museum}
+        isPc={isPc}
         name="museum"
         divName="The Museum Visitor"
         divText="더뮤지엄비지터 시즌 오프!"
       />
-      <MidAd imgName="midAd6" />
+      <MidAd isPc={isPc} imgName="midAd6" />
       <Item
         item={data?.suedeshoes}
+        isPc={isPc}
         name="suedeshoes"
         divName="Suede Shoes Collection"
         divText="FW 시즌의 대표 소재!"
@@ -265,9 +264,10 @@ function Body() {
         <div className="divName">오늘의 인기유저</div>
       </div>
       <MidSlider data={data?.todaypeoples} />
-      <MidAd imgName="midAd7" />
+      <MidAd isPc={isPc} imgName="midAd7" />
       <Item
         item={data?.lowest}
+        isPc={isPc}
         name="lowest"
         divName="New Lowest Asks"
         divText="새로운 즉시 구매가"
@@ -278,34 +278,39 @@ function Body() {
         <>
           <Item
             item={data?.highest}
+            isPc={isPc}
             name="highest"
             divName="New Highest Bids"
             divText="새로운 즉시 판매가"
           />
-          <MidAd imgName="midAd8" />
+          <MidAd isPc={isPc} imgName="midAd8" />
           <Item
             item={data?.upcoming}
+            isPc={isPc}
             name="upcoming"
             divName="Upcoming Release"
             divText="발매 예정"
           />
-          <MidAd imgName="midAd9" />
+          <MidAd isPc={isPc} imgName="midAd9" />
           <Item
             item={data?.scent}
+            isPc={isPc}
             name="scent"
             divName="The Scent of Winter"
             divText="겨울을 함께 할 향수"
           />
-          <MidAd imgName="midAd10" />
+          <MidAd isPc={isPc} imgName="midAd10" />
           <Item
             item={data?.giftideas}
+            isPc={isPc}
             name="giftideas"
             divName="Affordable Gift Ideas"
             divText="부담 없으면서도 특별한"
           />
-          <MidAd imgName="midAd11" />
+          <MidAd isPc={isPc} imgName="midAd11" />
           <Item
             item={data?.end}
+            isPc={isPc}
             name="end"
             divName="Your End of Year Playlist"
             divText="음악과 함께 마무리하는 2022년"

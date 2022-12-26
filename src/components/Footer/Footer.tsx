@@ -4,17 +4,12 @@ import { FiChevronDown } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { RiKakaoTalkFill } from "react-icons/ri";
-import usePc from "../../hooks/usePc/usePc";
 
-function Footer() {
+type IProps = {
+  isPc: boolean;
+}
 
-  let isPc = false;
-
-  if (usePc()) {
-    isPc = true
-  } else {
-    isPc = false
-  }
+function Footer({isPc}:IProps) {
 
   return (
     <div>

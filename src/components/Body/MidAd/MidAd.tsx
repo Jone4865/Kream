@@ -3,16 +3,10 @@ import usePc from "../../../hooks/usePc/usePc";
 
 type Iprops = {
   imgName: string;
+  isPc: boolean;
 };
 
-function Item({ imgName }: Iprops) {
-  let isPc = false;
-
-  if (usePc()) {
-    isPc = true
-  } else {
-    isPc = false
-  }
+function Item({ imgName, isPc }: Iprops) {
   
   return (
     <div className="imgSize">

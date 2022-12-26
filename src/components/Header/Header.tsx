@@ -1,16 +1,12 @@
 import "./Header.scss";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiMenu } from "react-icons/bi";
-import usePc from "../../hooks/usePc/usePc";
 
-function Header() {
-  let isPc = false;
+type IProps = {
+  isPc:boolean,
+}
 
-  if (usePc()) {
-    isPc = true
-  } else {
-    isPc = false
-  }
+function Header({isPc}:IProps) {
 
   return (
     <div className="header">

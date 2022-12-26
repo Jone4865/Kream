@@ -1,6 +1,5 @@
 import "./Item.scss";
 import React, { useState } from "react";
-import usePc from "../../../hooks/usePc/usePc";
 
 import { AiFillThunderbolt } from "react-icons/ai"; // 아이콘들
 import { AiFillCheckCircle } from "react-icons/ai";
@@ -11,6 +10,7 @@ type Iprops = {
   name: string;
   divName: string;
   divText: string;
+  isPc: boolean;
 };
 
 type IId = {
@@ -23,17 +23,10 @@ type IId = {
   imgName: string;
 };
 
-function Item({ item, name, divName, divText }: Iprops) {
-  let isPc = false;
-
-  if (usePc()) {
-    isPc = true
-  } else {
-    isPc = false
-  }
+function Item({ item, name, divName, divText, isPc }: Iprops) {
 
   const [items, setItems] = useState<number>(4);
-
+  
   return (
     <div className="goods">
       <div className="divName">{divName}</div>

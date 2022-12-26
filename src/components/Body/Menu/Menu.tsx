@@ -1,10 +1,9 @@
 import "./Menu.scss";
 
-import usePc from "../../../hooks/usePc/usePc";
-
 type IProps = {
   menu: any;
   name: string;
+  isPc: boolean;
 };
 
 type IData = {
@@ -13,15 +12,7 @@ type IData = {
   divName: string;
 };
 
-function Menu({ menu, name }: IProps) {
-
-  let isPc = false;
-
-  if (usePc()) {
-    isPc = true
-  } else {
-    isPc = false
-  }
+function Menu({ menu, name, isPc }: IProps) {
 
   return (
     <div className={isPc ? "pcMenu" : "nonPcMenu"}>

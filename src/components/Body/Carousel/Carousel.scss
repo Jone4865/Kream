@@ -43,12 +43,12 @@
 
 .btnLeft {
   position: absolute;
-  top: 50%;
+  top: 51%;
   left: 10px; 
   transform: translateY(-50%);
   color: black;
   z-index: 1;
-  font-size: 40px;
+  font-size: 43px;
   &:hover {
     cursor: pointer;
   }
@@ -56,12 +56,12 @@
 
 .btnRight {
   position: absolute;
-  top: 50%;
+  top: 51%;
   right: 10px; 
   transform: translateY(-50%);
   color: black;
   z-index: 1;
-  font-size: 40px;
+  font-size: 43px;
   &:hover {
     cursor: pointer;
   }
