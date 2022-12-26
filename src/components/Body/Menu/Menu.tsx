@@ -1,5 +1,6 @@
-import { useMediaQuery } from "react-responsive"; // pc여부 확인 모듈
 import "./Menu.scss";
+
+import usePc from "../../../hooks/usePc/usePc";
 
 type IProps = {
   menu: any;
@@ -13,9 +14,14 @@ type IData = {
 };
 
 function Menu({ menu, name }: IProps) {
-  const isPc = useMediaQuery({
-    query: "(min-width: 770px) and (max-width: 1920px)",
-  });
+
+  let isPc = false;
+
+  if (usePc()) {
+    isPc = true
+  } else {
+    isPc = false
+  }
 
   return (
     <div className={isPc ? "pcMenu" : "nonPcMenu"}>

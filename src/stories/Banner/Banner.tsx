@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import usePc from "../../../hooks/usePc/usePc";
-import "./Carousel.scss";
-import useInterval from "../../../hooks/useInterval/useInterval";
+import React, { useState } from "react";
+import usePc from "../../hooks/usePc/usePc";
+import "./Banner.css";
+import useInterval from "../../hooks/useInterval/useInterval";
 
 type IProps = {
   data: any;
@@ -11,24 +11,13 @@ type IData = {
   id: number;
   imgName: string;
   bottomColor: string;
-  backColor: String;
+  backColor: string;
 };
 
-function Carousel(data: IProps) {
-  let isPc = false;
-
-  if (usePc()) {
-    isPc = true;
-  } else {
-    isPc = false;
-  }
-
+function Banner(data: IProps) {
+  const [isPc] = useState(usePc());
   const [page, setPage] = useState<number>(0);
-
-  useInterval(() => {
-    setPage((prev) => (page === data.data?.length - 1 ? 0 : prev + 1));
-  }, 5000);
-
+  
   return (
     <div
       className={isPc ? "pcBanner" : "nonPcBanner"}
@@ -93,4 +82,4 @@ function Carousel(data: IProps) {
   );
 }
 
-export default Carousel;
+export default Banner;

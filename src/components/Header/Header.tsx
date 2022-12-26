@@ -1,13 +1,16 @@
-import React from "react";
 import "./Header.scss";
-import { useMediaQuery } from "react-responsive";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiMenu } from "react-icons/bi";
+import usePc from "../../hooks/usePc/usePc";
 
 function Header() {
-  const isPc = useMediaQuery({
-    query: "(min-width: 770px) and (max-width: 1920px)",
-  });
+  let isPc = false;
+
+  if (usePc()) {
+    isPc = true
+  } else {
+    isPc = false
+  }
 
   return (
     <div className="header">

@@ -1,6 +1,6 @@
 import "./Item.scss";
 import React, { useState } from "react";
-import { useMediaQuery } from "react-responsive"; // pc여부 확인 모듈
+import usePc from "../../../hooks/usePc/usePc";
 
 import { AiFillThunderbolt } from "react-icons/ai"; // 아이콘들
 import { AiFillCheckCircle } from "react-icons/ai";
@@ -24,9 +24,13 @@ type IId = {
 };
 
 function Item({ item, name, divName, divText }: Iprops) {
-  const isPc = useMediaQuery({
-    query: "(min-width: 770px) and (max-width: 1920px)",
-  });
+  let isPc = false;
+
+  if (usePc()) {
+    isPc = true
+  } else {
+    isPc = false
+  }
 
   const [items, setItems] = useState<number>(4);
 

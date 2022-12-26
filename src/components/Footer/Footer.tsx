@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Footer.scss";
-import { useMediaQuery } from "react-responsive";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { RiKakaoTalkFill } from "react-icons/ri";
+import usePc from "../../hooks/usePc/usePc";
 
 function Footer() {
-  const isPc = useMediaQuery({
-    query: "(min-width: 770px) and (max-width: 1920px)",
-  });
-  
+
+  let isPc = false;
+
+  if (usePc()) {
+    isPc = true
+  } else {
+    isPc = false
+  }
+
   return (
     <div>
       <div className="footerTop" style={{ display: isPc ? "flex" : "" }}>
@@ -19,19 +24,19 @@ function Footer() {
             style={{
               fontSize: "13px",
               fontWeight: "bold",
-              marginLeft:"30px",
+              marginLeft: "30px",
               marginBottom: isPc ? "13px" : "30px",
             }}
           >
             SERVICE GUIDE
           </div>
-          <div style={{marginLeft:"30px",}} >
+          <div style={{ marginLeft: "30px" }}>
             <div>KREAM은 처음이지?</div>
             <div>서비스 소개를 확인해보세요.</div>
           </div>
           <div
             className="footerTopButton"
-            style={{ marginTop: isPc ? "13px" : "15px", marginLeft:"30px" }}
+            style={{ marginTop: isPc ? "13px" : "15px", marginLeft: "30px" }}
           >
             서비스 안내
           </div>
@@ -42,18 +47,18 @@ function Footer() {
               fontSize: "13px",
               fontWeight: "bold",
               marginBottom: isPc ? "13px" : "30px",
-              marginLeft:"30px"
+              marginLeft: "30px",
             }}
           >
             DOWNLOAD THE APP
           </div>
-          <div style={{marginLeft:"30px"}}>
+          <div style={{ marginLeft: "30px" }}>
             <div>KREAM 앱을 설치하여</div>
             <div>한정판 스니커즈를 FLEX 하세요!</div>
           </div>
           <div
             className="footerTopButton"
-            style={{ marginTop: isPc ? "13px" : "15px", marginLeft:"30px" }}
+            style={{ marginTop: isPc ? "13px" : "15px", marginLeft: "30px" }}
           >
             앱 설치하기
           </div>
@@ -165,7 +170,10 @@ function Footer() {
             <div style={{ fontWeight: "bold" }}>개인정보처리방침</div>
           </div>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div className="footerIcon" style={{marginLeft: isPc ? "0" : "-10px"}}>
+            <div
+              className="footerIcon"
+              style={{ marginLeft: isPc ? "0" : "-10px" }}
+            >
               <AiOutlineInstagram />
               <BsFacebook />
               <RiKakaoTalkFill />

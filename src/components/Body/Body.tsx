@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { useMediaQuery } from "react-responsive"; // pc여부 확인 모듈
+import React, { useState } from "react";
+import usePc from "../../hooks/usePc/usePc";
 
 import { useInView } from "react-intersection-observer"; // 무한 스크롤 모듈
 
@@ -12,14 +12,20 @@ import "./Body.scss";
 import Menu from "./Menu/Menu"; // 컴포넌트들
 import Item from "./Item/Item";
 import MidAd from "./MidAd/MidAd";
-import Carousel from "./Carousel/Carousel";
 import MidSlider from "./MidSlider/MidSlider";
+import Carousel from "./Carousel/Carousel";
 
-import { Button } from "../../stories/Button";
+import { Button } from "../../stories/Button/Button";
+
 function Body() {
-  const isPc = useMediaQuery({
-    query: "(min-width: 770px) and (max-width: 1920px)",
-  });
+  
+  let isPc = false;
+
+  if (usePc()) {
+    isPc = true
+  } else {
+    isPc = false
+  }
 
   const GetData = gql`
     query getData {
@@ -183,13 +189,13 @@ function Body() {
   return (
     <div className="body">
       <div style={{ height: isPc ? "96px" : "60px" }} />
-      <Button
-        size="large"
+      {/* <Button
+        size="small"
         label="테스트"
         onClick={() => alert("hi")}
         backgroundColor="red"
-      />
-      <Carousel data={data?.banner} />
+      /> */}
+      <Carousel data={data?.banner}/>
       <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
         <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
       </div>

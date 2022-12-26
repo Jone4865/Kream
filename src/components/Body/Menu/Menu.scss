@@ -1,8 +1,7 @@
 //pc에서
 .pcMenu {
-  min-width: 780px;
   max-width: 1270px;
-  width: 98vw;
+  width: 95%;
   display: flex;
   margin: auto auto 30px auto;
   flex-wrap: wrap;
@@ -22,6 +21,7 @@
     min-height: 100px;
     margin: 0 auto;
     border-radius: 8px;
+    object-fit:cover;
     &:hover {
       cursor: pointer;
     }
