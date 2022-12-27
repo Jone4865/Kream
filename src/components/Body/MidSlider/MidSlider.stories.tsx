@@ -13,19 +13,19 @@ export default {
         },
         {
           id: 2,
-          nickname: "user1",
+          nickname: "user2",
         },
         {
           id: 3,
-          nickname: "user1",
+          nickname: "user3",
         },
         {
           id: 4,
-          nickname: "user1",
+          nickname: "user4",
         },
         {
           id: 5,
-          nickname: "user1",
+          nickname: "user5",
         },
       ],
     },
