@@ -1,36 +1,37 @@
 import "./Menu.scss";
 
-type IProps = {
-  menu: any;
+type Props = {
+  menu: Data[];
   name: string;
   isPc: boolean;
 };
 
-type IData = {
+type Data = {
   id: number;
   imgName: string;
-  divName: string;
+  title: string;
 };
 
-function Menu({ menu, name, isPc }: IProps) {
-
+function Menu({ menu, name, isPc }: Props) {
   return (
-    <div className={isPc ? "pcMenu" : "nonPcMenu"}>
-      {menu?.map(({ id, imgName, divName }: IData) => {
-        return (
-          <div key={id} className={isPc ? "pcMenuBody" : "nonPcMenuBody"}>
-            <img
-              src={
-                isPc
-                  ? `./img/${name}/${name}Pc/${imgName}.png`
-                  : `./img/${name}/${name}NonPc/${imgName}.jpg`
-              }
-              alt="menuImage"
-            />
-            <div>{divName}</div>
-          </div>
-        );
-      })}
+    <div className="menu">
+      <div className="menu-body">
+        {menu?.map(({ id, imgName, title }: Data) => {
+          return (
+            <div key={id} className="menu-element">
+              <img
+                src={
+                  isPc
+                    ? `./img/${name}/${name}Pc/${imgName}.png`
+                    : `./img/${name}/${name}NonPc/${imgName}.jpg`
+                }
+                alt="메뉴이미지"
+              />
+              <div>{title}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

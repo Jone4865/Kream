@@ -11,16 +11,16 @@ import "swiper/css/scrollbar";
 
 import "./MidSlider.scss";
 
-type IProps = {
-  data: any;
+type Props = {
+  data: Data[];
 };
 
-type IData = {
+type Data = {
   id: number;
   nickname: string;
 };
 
-function StylepicksSilder(data: IProps) {
+function StylepicksSilder(data: Props) {
   const [page, setPage] = useState(0);
 
   const isMid = useMediaQuery({
@@ -40,28 +40,28 @@ function StylepicksSilder(data: IProps) {
       <Swiper
         modules={[Navigation, Scrollbar, A11y]}
         spaceBetween={10}
-        slidesPerView={isMid ? 6 : isMobile ? 3.7 : 4.5}
+        slidesPerView={isMid ? 6 : isMobile ? 3.7 : 5}
         navigation
-        onSwiper={(swiper) => ""}
         onSlideChange={() => setPage(page + 1)}
-        className={isPc ? "midSliderPc" : "midSliderNonPc"}
+        className="mid-slider"
         loop={true}
+  
       >
-        {data?.data?.map(({ id, nickname }: IData) => {
+        {data?.data?.map(({ id, nickname }: Data) => {
           return (
             <SwiperSlide key={id}>
-              <div className="cardsBody">
+              <div className="cards-body">
                 <img
-                  className="icon"
+                  className="midslider-icon"
                   src={`./img/peoples/iconImg/${nickname}.jpg`}
-                  alt="profileImg"
+                  alt="프로필이미지"
                 />
                 <img
-                  className={isPc ? "styleImgPc" : "styleImgNonPc"}
+                  className="style-img"
                   src={`./img/peoples/styleImg/${nickname}.jpg`}
-                  alt="midSliderImg"
+                  alt="스타일이미지"
                 />
-                <div className="nickName">
+                <div className="nick-name">
                   <div>@{nickname}</div>
                 </div>
               </div>

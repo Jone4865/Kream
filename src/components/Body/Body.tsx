@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import usePc from "../../hooks/usePc/usePc";
 
 import { useInView } from "react-intersection-observer"; // 무한 스크롤 모듈
 
@@ -14,29 +13,25 @@ import Item from "./Item/Item";
 import MidAd from "./MidAd/MidAd";
 import MidSlider from "./MidSlider/MidSlider";
 import Carousel from "./Carousel/Carousel";
+import Title from "./Title/Title";
 
-function Body() {
-  
-  let isPc = false;
+type Props = {
+  isPc: boolean;
+};
 
-  if (usePc()) {
-    isPc = true
-  } else {
-    isPc = false
-  }
-
+function Body({ isPc }: Props) {
   const GetData = gql`
     query getData {
       # 메뉴들
       menu1 {
         id
         imgName
-        divName
+        title
       }
       menu2 {
         id
         imgName
-        divName
+        title
       }
       # 아이템들
       justdrop {
@@ -186,135 +181,82 @@ function Body() {
 
   return (
     <div className="body">
-      <div style={{ height: isPc ? "96px" : "60px" }} />
-      <Carousel data={data?.banner} isPc={isPc}/>
+      <div className="void" />
+      <Carousel data={data?.banner} isPc={isPc} />
       <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
-        <GrLinkTop style={{ fontSize: "17px", marginTop: "16px" }} />
+        <GrLinkTop className="icon-to-top" />
       </div>
       <Menu menu={data?.menu1} name="menu1" isPc={isPc} />
       {!isPc ? <div className="line" /> : ""}
-      <Item
-        item={data?.justdrop}
-        isPc={isPc}
-        name="justdrop"
-        divName="Just Dropped"
-        divText="발매 상품"
-      />
+      <Title title={"Just Dropped"} subTitle={"발매 상품"} />
+      <Item items={data?.justdrop} isPc={isPc} name="justdrop" />
       {!isPc ? <div className="line" /> : ""}
-      <div className="divTitle">
-        <div className="divName">Brand Focus</div>
-        <div className="divText">추천 브랜드</div>
-      </div>
+      <Title title={"Brand Focus"} subTitle={"발매 상품"} />
       <Menu menu={data?.menu2} name="menu2" isPc={isPc} />
-      <MidAd isPc={isPc} imgName="midAd1" />
-      <Item
-        item={data?.mostpopular}
-        isPc={isPc}
-        name="mostpopular"
-        divName="Most Popular"
-        divText="인기 상품"
-      />
+      <MidAd imgName="midAd1.jpg" />
+      <Title title={"Most Popular"} subTitle={"인기 상품"} />
+      <Item items={data?.mostpopular} isPc={isPc} name="mostpopular" />
       {!isPc ? <div className="line" /> : ""}
-      <div className="divTitle">
-        <div className="divName">Style Picks!</div>
+      <div className="title">
+        <div className="people-title">Style Picks!</div>
       </div>
       <MidSlider data={data?.stylepicks} />
-      <MidAd isPc={isPc} imgName="midAd2" />
-      <Item
-        item={data?.newin}
-        isPc={isPc}
-        name="newin"
-        divName="New In"
-        divText="신규 등록 상품"
+      <MidAd imgName="midAd2.jpg" />
+      <Title title={"New In"} subTitle={"신규 등록 상품"} />
+      <Item items={data?.newin} isPc={isPc} name="newin" />
+      <MidAd imgName="midAd3.jpg" />
+      <Title title={"Build A Winter"} subTitle={"겨울철 꼭 필요한 매칭"} />
+      <Item items={data?.buildawinter} isPc={isPc} name="buildawinter" />
+      <MidAd imgName="midAd4.jpg" />
+      <Title title={"Most Shared"} subTitle={"가장 많이 공유된 아우터"} />
+      <Item items={data?.mostshared} isPc={isPc} name="mostshared" />
+      <MidAd imgName="midAd5.jpg" />
+      <Title
+        title={"The Museum Visitor"}
+        subTitle={"더뮤지옴비지터 시즌 오프!"}
       />
-      <MidAd isPc={isPc} imgName="midAd3" />
-      <Item
-        item={data?.buildawinter}
-        isPc={isPc}
-        name="buildawinter"
-        divName="Build a Winter Wardrobe"
-        divText="겨울철 꼭 필요한 매칭"
+      <Item items={data?.museum} isPc={isPc} name="museum" />
+      <MidAd imgName="midAd6.jpg" />
+      <Title
+        title={"Suede Shoes Collection"}
+        subTitle={"FW 시즌의 대표 소재!"}
       />
-      <MidAd isPc={isPc} imgName="midAd4" />
-      <Item
-        item={data?.mostshared}
-        isPc={isPc}
-        name="mostshared"
-        divName="Most Shared Outer"
-        divText="가장 많이 공유된 아우터"
-      />
-      <MidAd isPc={isPc} imgName="midAd5" />
-      <Item
-        item={data?.museum}
-        isPc={isPc}
-        name="museum"
-        divName="The Museum Visitor"
-        divText="더뮤지엄비지터 시즌 오프!"
-      />
-      <MidAd isPc={isPc} imgName="midAd6" />
-      <Item
-        item={data?.suedeshoes}
-        isPc={isPc}
-        name="suedeshoes"
-        divName="Suede Shoes Collection"
-        divText="FW 시즌의 대표 소재!"
-      />
+      <Item items={data?.suedeshoes} isPc={isPc} name="suedeshoes" />
       {!isPc ? <div className="line" /> : ""}
-      <div className="divTitle">
-        <div className="divName">오늘의 인기유저</div>
+      <div className="title">
+        <div className="people-title">오늘의 인기유저</div>
       </div>
       <MidSlider data={data?.todaypeoples} />
-      <MidAd isPc={isPc} imgName="midAd7" />
-      <Item
-        item={data?.lowest}
-        isPc={isPc}
-        name="lowest"
-        divName="New Lowest Asks"
-        divText="새로운 즉시 구매가"
-      />
+      <MidAd imgName="midAd7.jpg" />
+      <Title title={"New Lowest Asks"} subTitle={"새로운 즉시 구매가"} />
+      <Item items={data?.lowest} isPc={isPc} name="lowest" />
       <div ref={ref}></div>
       {!isPc ? <div className="line" /> : ""}
       {page === 2 ? (
         <>
-          <Item
-            item={data?.highest}
-            isPc={isPc}
-            name="highest"
-            divName="New Highest Bids"
-            divText="새로운 즉시 판매가"
+          <Title title={"New Highest Bids"} subTitle={"새로운 즉시 판매가"} />
+          <Item items={data?.highest} isPc={isPc} name="highest" />
+          <MidAd imgName="midAd8.jpg" />
+          <Title title={"Upcoming Release"} subTitle={"발매 예정"} />
+          <Item items={data?.upcoming} isPc={isPc} name="upcoming" />
+          <MidAd imgName="midAd9.jpg" />
+          <Title
+            title={"The Scent of Winter"}
+            subTitle={"겨울을 함께 할 향수"}
           />
-          <MidAd isPc={isPc} imgName="midAd8" />
-          <Item
-            item={data?.upcoming}
-            isPc={isPc}
-            name="upcoming"
-            divName="Upcoming Release"
-            divText="발매 예정"
+          <Item items={data?.scent} isPc={isPc} name="scent" />
+          <MidAd imgName="midAd10.jpg" />
+          <Title
+            title={"Affordable Gift Ideas"}
+            subTitle={"부담 없으면서도 특별한"}
           />
-          <MidAd isPc={isPc} imgName="midAd9" />
-          <Item
-            item={data?.scent}
-            isPc={isPc}
-            name="scent"
-            divName="The Scent of Winter"
-            divText="겨울을 함께 할 향수"
+          <Item items={data?.giftideas} isPc={isPc} name="giftideas" />
+          <MidAd imgName="midAd11.jpg" />
+          <Title
+            title={"Your End of Year Playlist"}
+            subTitle={"음악과 함께 마무리하는 2022년"}
           />
-          <MidAd isPc={isPc} imgName="midAd10" />
-          <Item
-            item={data?.giftideas}
-            isPc={isPc}
-            name="giftideas"
-            divName="Affordable Gift Ideas"
-            divText="부담 없으면서도 특별한"
-          />
-          <MidAd isPc={isPc} imgName="midAd11" />
-          <Item
-            item={data?.end}
-            isPc={isPc}
-            name="end"
-            divName="Your End of Year Playlist"
-            divText="음악과 함께 마무리하는 2022년"
-          />
+          <Item items={data?.end} isPc={isPc} name="end" />
         </>
       ) : (
         ""

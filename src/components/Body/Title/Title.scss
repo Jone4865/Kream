@@ -1,0 +1,23 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 3%;
+}
+
+.title-content {
+  padding-left: 2.2%;
+  font-weight: bold;
+  display: flex;
+  font-size: 21px;
+}
+
+.subtitle {
+  padding-left: 2.2%;
+  font-size: 14px;
+  color: rgba(128, 128, 128, 0.63);
+  display: flex;
+  margin-bottom: 7px;
+}

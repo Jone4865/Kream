@@ -1,22 +1,26 @@
-.imgSize {
+@import "../../../../public/scss/style.scss";
+
+.img-size {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin: 20px auto 30px auto;
   &:hover {
     cursor: pointer;
   }
 }
 
-.pcImg {
-  width: 100%;
-  height: 45vw;
-  max-height: 500px;
-  object-fit: fill;
-}
-
-.nonPcImg {
-  width: 100%;
-  min-height: 470px;
-  object-fit: cover;
+.ad-img {
+  @include view ("pc") {
+    width: 100%;
+    height: 45vw;
+    max-height: 500px;
+    object-fit: fill;
+  }
+  @include view ("mobile") {
+    width: 100%;
+    height: 75vw;
+    // min-height: 470px;
+    object-fit: cover;
+  }
 }

@@ -5,15 +5,13 @@ import { AiFillThunderbolt } from "react-icons/ai"; // 아이콘들
 import { AiFillCheckCircle } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
 
-type Iprops = {
-  item: any;
+type Props = {
+  items: Data[];
   name: string;
-  divName: string;
-  divText: string;
   isPc: boolean;
 };
 
-type IId = {
+type Data = {
   id: number;
   price: number;
   maker: string;
@@ -23,67 +21,56 @@ type IId = {
   imgName: string;
 };
 
-function Item({ item, name, divName, divText, isPc }: Iprops) {
+function Item({ items, name, isPc }: Props) {
 
-  const [items, setItems] = useState<number>(4);
+  const [totalCount, setItems] = useState<number>(4);
   
   return (
     <div className="goods">
-      <div className="divName">{divName}</div>
-      <div className="divText">{divText}</div>
-      <div className={isPc ? "pcGoodsElement" : "nonPcGoodsElement"}>
-        {item?.map(
-          ({ id, price, maker, content, delivery, now, imgName }: IId) => {
-            return id <= items ? (
-              <div className={isPc ? "pcGoodsBody" : "nonPcGoodsBody"} key={id}>
-                <div className={isPc ? "pcGoodsImg" : "nonPcGoodsImg"}>
+      <div className="goods-element">
+        {items?.map(
+          (item, idx) => {
+            return idx + 1 <= totalCount ? (
+              <div className="goods-body" key={item?.id}>
+                <div className="goods-img">
                   <img
-                    src={`./img/goods/${name}/${imgName}.png`}
-                    alt="itemImage"
+                    src={`./img/goods/${name}/${item?.imgName}`}
+                    alt="아이템이미지"
                   />
                   <BsBookmark
-                    style={{
-                      position: "absolute",
-                      right: "8%",
-                      bottom: "5%",
-                      fontSize: "18px",
-                    }}
+                    className="icon-bookmark"
                   />
                 </div>
-                <div className={!isPc ? "nonPcGoodsBottom" : ""}>
-                  <div className="goodsMaker">
-                    <div>{maker}</div>
+                <div className="goods-bottom">
+                  <div className="goods-maker">
+                    <div>{item?.maker}</div>
                     <div>
-                      {delivery === "brand" ? (
+                      {item?.delivery === "brand" ? (
                         <AiFillCheckCircle
-                          style={{
-                            color: "rgb(144, 138, 233)",
-                            fontSize: "15px",
-                            marginLeft: "2px",
-                          }}
+                          className="icon-circle"
                         />
                       ) : (
                         ""
                       )}
                     </div>
                   </div>
-                  <div className="goodsContent">{content}</div>
+                  <div className="goods-content">{item?.content}</div>
                   <div>
-                    {delivery === "speed" ? (
+                    {item?.delivery === "speed" ? (
                       <div className="speed">
                         <AiFillThunderbolt
-                          style={{ color: "rgb(31, 201, 90)" }}
+                        className="icon-delevery"
                         />
                         빠른배송
                       </div>
-                    ) : delivery === "brand" ? (
+                    ) : item?.delivery === "brand" ? (
                       <div className="brand">브랜드배송</div>
                     ) : (
                       ""
                     )}
                   </div>
-                  <div className="goodsPrice">{price.toLocaleString()}원</div>
-                  <div className="now">{now ? "즉시 구매가" : "구매가"}</div>
+                  <div className="goods-price">{item?.price.toLocaleString()}원</div>
+                  <div className="now">{item?.now ? "즉시 구매가" : "구매가"}</div>
                 </div>
               </div>
             ) : (
@@ -92,11 +79,11 @@ function Item({ item, name, divName, divText, isPc }: Iprops) {
           }
         )}
       </div>
-      {item?.length <= items ? (
+      {items?.length <= totalCount ? (
         ""
       ) : isPc ? (
         <button
-          className="moreButton"
+          className="more-button"
           onClick={() => {
             setItems((prev) => prev + 4);
           }}

@@ -10,13 +10,13 @@ export default {
       defaultValue: [
         {
             id: 2,
-            imgName: "banner1",
+            imgName: "banner1.jpg",
             bottomColor: "black",
             backColor: "black",
         },
         {
             id: 1,
-            imgName: "banner3",
+            imgName: "banner3.jpg",
             bottomColor: "white",
             backColor: "white",
         },

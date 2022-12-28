@@ -1,59 +1,26 @@
-.footerTop {
+@import "../../../public/scss/style.scss";
+
+.footer-top {
+  @include view("pc") {
+    display: flex;
+  }
   color: white;
   width: 100%;
 }
 
-.serviceGuide {
-  padding: 30px 0;
-  background-image: url("../../../public/img/footer/footerLeft.png");
-  alt: "serviceguideImg";
-  background-color: rgba(60, 58, 58, 0.908);
-  background-size: 350px;
-  background-repeat: no-repeat;
-  background-position: right;
-  height: 140px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.download {
-  padding: 30px 0;
-  background-image: url("../../../public/img/footer/footerRight.png");
-  alt: "downloadImg";
-  background-color: rgb(48, 45, 45);
-  background-size: 350px;
-  background-repeat: no-repeat;
-  background-position: right;
-  height: 140px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.footerTopButton {
-  border: solid 1px white;
-  width: 60px;
-  font-size: 13px;
-  text-align: center;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.footerMidButton {
+.footer-mid-button {
   background-color: black;
   color: white;
   border: none;
   width: 100px;
   height: 35px;
-  font-weight: bold;
   &:hover {
     cursor: pointer;
   }
 }
 
 .detail {
-  color: rgba(128, 128, 128, 0.96);
+  color: rgba(128, 128, 128, 0.646);
   font-size: 14px;
   margin: 15px 0;
   &:hover {
@@ -67,7 +34,13 @@
   margin: 30px auto;
 }
 
-.footerMid {
+.footer-mid {
+  @include view("pc") {
+    flex-direction: row;
+  }
+  @include view("mobile") {
+    flex-direction: column-reverse;
+  }
   width: 95%;
   display: flex;
   justify-content: space-between;
@@ -76,29 +49,84 @@
   padding: 10px 0 25px 0;
 }
 
-.footerBottom {
+.footer-mid-body1 {
+  display: flex;
+}
+
+.footer-mid-body1-items {
+  margin: 30px 15px;
+}
+
+.footer-mid-body1-item {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.footer-mid-body1-items2 {
+  margin: 30px 40px 20px 90px;
+}
+
+.footer-mid-body2 {
+  padding: 30px 10px;
+}
+
+.footer-mid-body2-item1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-mid-body2-item2 {
+  color: rgba(128, 128, 128, 0.567);
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.footer-mid-body2-item3 {
+  color: rgba(128, 128, 128, 0.567);
+  font-size: 13px;
+}
+
+.footer-mid-body2-item4 {
+  font-size: 13px;
+  margin: 10px 0 20px 0;
+  color: rgba(0, 0, 0, 0.906);
+}
+
+.footer-bottom {
   width: 95%;
   display: flex;
   margin: auto;
   flex-direction: column;
 }
 
-.footerBottomLine1 {
+.footer-bottom-line1 {
   display: flex;
   justify-content: space-between;
 }
 
-.footerBottomLine1Body {
+.footer-bottom-line1-body {
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
   div {
     margin: 30px 20px 0 0;
-    font-size: 15px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.743);
   }
 }
 
-.footerBottomLine2 {
+.footer-bottom-line1-body2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom-line1-body2-item {
+  font-size: 12.5px;
+  color: rgba(0, 0, 0, 0.857);
+  margin: auto 0;
+}
+
+.footer-bottom-line2 {
   font-size: 13px;
   color: rgba(128, 128, 128, 0.969);
   span {
@@ -107,19 +135,85 @@
   white-space: pre-wrap;
 }
 
-.footerBottomLine3 {
+.footer-bottom-line2-body {
+  margin: 40px 0 20px 0;
+}
+
+.footer-bottom-line2-body2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom-line2-body2-item {
+  font-size: 13px;
+  margin: 30px 20px 0 0;
+}
+
+.footer-bottom-line3 {
   font-size: 12px;
-  color: rgba(128, 128, 128, 0.668);
+  color: rgba(128, 128, 128, 0.354);
   span {
     text-decoration: underline;
   }
 }
 
-.footerIcon {
+.footer-bottom-line3-body {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.footer-icon {
+  @include view("mobile") {
+    margin-left: -10px;
+  }
   font-size: 25px;
   padding: 15px 5px 0 0;
   * {
     margin: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.hover {
+  div,
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.sns-icon {
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+}
+
+.company {
+  margin: auto;
+  padding: 40px;
+  font-size: 13px;
+  color: rgba(128, 128, 128, 0.668);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.shinhan {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.more {
+  color: rgba(0, 0, 0, 0.289);
+  font-size: 13.5px;
+  margin: 0 auto 15px 0;
+  span {
+    text-decoration: underline;
     &:hover {
       cursor: pointer;
     }

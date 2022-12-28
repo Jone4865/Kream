@@ -7,15 +7,13 @@ export default {
   argTypes: {
     isPc: { defaultValue: false },
     name: { defaultValue: "mostshared" },
-    divName: { defaultValue: "mostshared" },
-    divText: { defaultValue: "가장 많이 공유된 아우터" },
-    item: {
+    items: {
         defaultValue: [
         {
             content:"Nike 상품",
             delivery:"brand",
             id: 1,
-            imgName: "mostshared1",
+            imgName: "mostshared1.png",
             maker:"Nike",
             now: true,
             price: 2495000
@@ -24,7 +22,7 @@ export default {
             content:"Nike 상품",
             delivery:"brand",
             id: 2,
-            imgName: "mostshared2",
+            imgName: "mostshared2.png",
             maker:"Nike",
             now: true,
             price: 2495000
@@ -33,7 +31,7 @@ export default {
             content:"Nike 상품",
             delivery:"brand",
             id: 3,
-            imgName: "mostshared3",
+            imgName: "mostshared3.png",
             maker:"Nike",
             now: true,
             price: 2495000
@@ -42,7 +40,7 @@ export default {
             content:"Nike 상품",
             delivery:"brand",
             id: 4,
-            imgName: "mostshared4",
+            imgName: "mostshared4.png",
             maker:"Nike",
             now: true,
             price: 2495000
@@ -51,7 +49,7 @@ export default {
             content:"Nike 상품",
             delivery:"brand",
             id: 5,
-            imgName: "mostshared5",
+            imgName: "mostshared5.png",
             maker:"Nike",
             now: true,
             price: 2495000

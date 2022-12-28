@@ -1,0 +1,46 @@
+@import "../../../../public/scss/style.scss";
+
+.footer-img {
+  @include view("pc") {
+    width: 50%;
+    padding: 30px 0 30px 30px;
+    background-position: right;
+  }
+  @include view("mobile") {
+    width: auto;
+    padding: 30px 0 30px 30px;
+    background-position: 120%;
+  }
+  background-size: 350px;
+  background-repeat: no-repeat;
+  height: 140px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.footer-title {
+  @include view("pc") {
+    margin-bottom: 13px;
+  }
+  @include view("mobile") {
+    margin-bottom: 30px;
+  }
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.footer-top-button {
+  @include view("pc") {
+    margin-top: 13px;
+  }
+  @include view("mobile") {
+    margin-top: 15px;
+  }
+  border: solid 1px white;
+  width: 60px;
+  font-size: 13px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}

@@ -2,38 +2,38 @@ import "./Header.scss";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiMenu } from "react-icons/bi";
 
-type IProps = {
+type Props = {
   isPc:boolean,
 }
 
-function Header({isPc}:IProps) {
+function Header({isPc}:Props) {
 
   return (
     <div className="header">
       {isPc ? (
-        <div className="headerTop">
+        <div className="header-top">
           <div>고객센터</div>
           <div>관심상품</div>
           <div>마이페이지</div>
-          <div style={{ marginRight: "35px" }}>로그인</div>
+          <div className="login-text">로그인</div>
         </div>
       ) : (
         ""
       )}
-      <div className="headerBottom">
-        <img className="logo" src={"./img/Logo.png"} alt="logoImg" />
+      <div className="header-bottom">
+        <img className="logo" src={"./img/Logo.png"} alt="로고이미지" />
         {isPc ? (
           <div>
             <div>STYLE</div>
             <div>SHOP</div>
             <div>ABOUT</div>
-            <HiOutlineSearch className="pcIcon" />
+            <HiOutlineSearch className="icon" />
           </div>
         ) : (
           <div>
-            <HiOutlineSearch className="nonPcIcon" />
+            <HiOutlineSearch className="icon" />
             <BiMenu
-              className="nonPcIcon"
+              className="icon"
             />
           </div>
         )}

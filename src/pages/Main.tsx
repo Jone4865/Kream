@@ -16,7 +16,7 @@ function Main() {
   return (
     <div>
       <Header isPc={isPc} />
-      <Body/>
+      <Body isPc={isPc}/>
       <Footer isPc={isPc}/>
     </div>
   );

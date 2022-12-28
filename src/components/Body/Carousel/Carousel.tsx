@@ -4,19 +4,19 @@ import useInterval from "../../../hooks/useInterval/useInterval";
 
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl"; // 탑으로 가는 아이콘
 
-type IProps = {
-  data: any;
+type Props = {
+  data: Data[];
   isPc: boolean;
 };
 
-type IData = {
+type Data = {
   id: number;
   imgName: string;
   bottomColor: string;
   backColor: String;
 };
 
-function Carousel({data, isPc} : IProps) {
+function Carousel({data, isPc} : Props) {
 
   const [page, setPage] = useState<number>(0);
   const [paging, setPaging] = useState<boolean>(true);
@@ -32,13 +32,13 @@ function Carousel({data, isPc} : IProps) {
 
   return (
     <div
-      className={isPc ? "pcBanner" : "nonPcBanner"}
+      className={"banner"}
       style={{ backgroundColor: `#${data[page]?.backColor}` }}
     >
       {isPc ? (
         <div className="btns">
           <div
-            className="btnLeft"
+            className="btn-left"
             style={{ color: data[page]?.bottomColor }}
             onClick={() => {
               setPaging(false);
@@ -51,7 +51,7 @@ function Carousel({data, isPc} : IProps) {
             <SlArrowLeft />
           </div>
           <div
-            className="btnRight"
+            className="btn-right"
             style={{ color: data[page]?.bottomColor }}
             onClick={() => {
               setPaging(false);
@@ -68,24 +68,23 @@ function Carousel({data, isPc} : IProps) {
         ""
       )}
       <div
-        className="bannerBody"
+        className="banner-body"
         style={{ backgroundColor: `${data[page - 1]?.backColor}` }}
       >
-        {data?.map(({ id, imgName }: IData) => (
+        {data?.map(({ id, imgName }: Data) => (
           <img
             key={id}
-            className={page === id - 1 ? "img" : "nonImg"}
-            style={{ top: !isPc ? "35%" : "" }}
-            src={`./img/banner/${imgName}.jpg`}
-            alt="bannerImage"
+            className={page === id - 1 ? "img" : "non-img"}
+            src={`./img/banner/${imgName}`}
+            alt="배너이미지"
           />
         ))}
       </div>
       <div className="dots">
-        {data?.map(({ id, bottomColor }: IData) => (
+        {data?.map(({ id, bottomColor }: Data) => (
           <div
             key={id}
-            className={isPc ? "pcDot" : "nonPcDot"}
+            className={"dot"}
             style={{
               backgroundColor:
                 id == page + 1 ? `${bottomColor}` : "rgba(211, 211, 211, 0.4)",
@@ -95,7 +94,7 @@ function Carousel({data, isPc} : IProps) {
               setTime(5000);
               setPage(+id - 1);
             }}
-          ></div>
+          />
         ))}
       </div>
     </div>

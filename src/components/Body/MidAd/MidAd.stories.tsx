@@ -5,8 +5,7 @@ export default {
   title: "Components|Basic/MidAd",
   component: MidAd,
   argTypes: {
-    isPc: { defaultValue: false },
-    imgName: { defaultValue: "midAd1"}
+    imgName: { defaultValue: "midAd1.jpg"}
   },
 } as ComponentMeta<typeof MidAd>;
 
