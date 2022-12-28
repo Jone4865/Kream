@@ -7,6 +7,9 @@
   @include view("pc") {
     padding: 0 5%;
   }
+  @include view("mobile") {
+    padding: 0 2%;
+  }
 }
 
 .menu-body {

@@ -1,4 +1,4 @@
-import "./FooterBackImg.scss";
+import "./FooterImg.scss";
 
 type ImgProps = {
   title: string;
@@ -8,7 +8,7 @@ type ImgProps = {
   imgName: string;
 };
 
-function FooterBackImg({
+function FooterImg({
   title,
   subTitle1,
   subTitle2,
@@ -36,4 +36,4 @@ function FooterBackImg({
   );
 }
 
-export default FooterBackImg;
+export default FooterImg;

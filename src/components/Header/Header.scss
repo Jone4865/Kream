@@ -12,17 +12,23 @@
   height: 22px;
   display: flex;
   justify-content: space-around;
-  color: rgba(90, 85, 85, 0.956);
+  color: rgba(90, 85, 85, 0.694);
   font-size: 12px;
   justify-content: flex-end;
+  border-bottom: solid 1px #dcdcdc;
+  padding-bottom: 10px;
+}
+
+
+.header-top-body {
+  display: flex;
+  padding-right: 33px;
   div {
     margin: 10px 10px 0 10px;
     &:hover {
       cursor: pointer;
     }
   }
-  border-bottom: solid 1px #dcdcdc;
-  padding-bottom: 10px;
 }
 
 .header-bottom {
@@ -58,7 +64,7 @@
   position: relative;
   width: 25px;
   height: 25px;
-
+  top: 5px;
   &:hover {
     cursor: pointer;
   }
@@ -67,9 +73,7 @@
   }
   @include view("mobile") {
     margin-bottom: 10px;
+    margin-left: 20px;
   }
 }
 
-.login-text {
-  margin-right: 35px;
-}

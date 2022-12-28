@@ -1,21 +1,19 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Header from "./Header";
+import Side from "./Side";
 
 export default {
-  title: "Components|Basic/Header",
-  component: Header,
-  isPc: { defaultValue: false },
+  title: "Components|Basic/Side",
+  component: Side,
   modal: { defaultValue: 1 },
   modalSet: {
     defaultValue: function (modal: boolean): void {
       throw new Error("Function not implemented.");
     },
   },
-} as ComponentMeta<typeof Header>;
+} as ComponentMeta<typeof Side>;
 
-export const Template: ComponentStory<typeof Header> = (args) => (
-  <Header
-    isPc={false}
+export const Template: ComponentStory<typeof Side> = (args) => (
+  <Side
     modal={false}
     modalSet={function (modal: boolean): void {
       throw new Error("Function not implemented.");

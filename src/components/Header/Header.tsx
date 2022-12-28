@@ -3,19 +3,27 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { BiMenu } from "react-icons/bi";
 
 type Props = {
-  isPc:boolean,
-}
+  isPc: boolean;
+  modal: boolean;
+  modalSet: (modal: boolean) => void;
+};
 
-function Header({isPc}:Props) {
+function Header({ isPc, modal, modalSet }: Props) {
+  
+  if (isPc) {
+    modalSet(false);
+  }
 
   return (
     <div className="header">
       {isPc ? (
         <div className="header-top">
-          <div>고객센터</div>
-          <div>관심상품</div>
-          <div>마이페이지</div>
-          <div className="login-text">로그인</div>
+          <div className="header-top-body">
+            <div>고객센터</div>
+            <div>관심상품</div>
+            <div>마이페이지</div>
+            <div>로그인</div>
+          </div>
         </div>
       ) : (
         ""
@@ -32,9 +40,7 @@ function Header({isPc}:Props) {
         ) : (
           <div>
             <HiOutlineSearch className="icon" />
-            <BiMenu
-              className="icon"
-            />
+            <BiMenu className="icon" onClick={()=> modalSet(!modal)} />
           </div>
         )}
       </div>

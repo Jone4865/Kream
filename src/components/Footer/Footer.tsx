@@ -4,7 +4,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { RiKakaoTalkFill } from "react-icons/ri";
-import FooterBackImg from "./FooterBackImg/FooterBackImg";
+import FooterBackImg from "./FooterImg/FooterImg";
 
 type Props = {
   isPc: boolean;

@@ -174,6 +174,8 @@ function Body({ isPc }: Props) {
     setPage(page + 1);
   }
 
+  const [modal, setModal] = useState(false);
+
   const { loading, error, data } = useQuery(GetData);
 
   if (loading) return <p className="loading">Loading...</p>;
