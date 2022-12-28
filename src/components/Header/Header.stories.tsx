@@ -5,7 +5,7 @@ export default {
   title: "Components|Basic/Header",
   component: Header,
   isPc: { defaultValue: false },
-  modal: { defaultValue: 1 },
+  modal: { defaultValue: true },
   modalSet: {
     defaultValue: function (modal: boolean): void {
       throw new Error("Function not implemented.");

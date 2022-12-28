@@ -27,7 +27,7 @@ function Main() {
   }
 
   return (
-    <div>
+    <div className='main'> 
       <Header isPc={isPc} modal={modal} modalSet={modalSet} />
       {modal && !isPc ? <Side modal={modal} modalSet={modalSet} /> : ""}
       <Body isPc={isPc}/>

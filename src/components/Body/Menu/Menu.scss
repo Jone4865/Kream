@@ -2,10 +2,10 @@
 
 .menu {
   width: auto;
-  margin: 10px auto;
+  margin: 10px auto 28px auto;
 
   @include view("pc") {
-    padding: 0 5%;
+    padding: 0 3%;
   }
   @include view("mobile") {
     padding: 0 2%;

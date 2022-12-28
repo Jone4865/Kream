@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useInView } from "react-intersection-observer"; // 무한 스크롤 모듈
 
@@ -169,12 +169,21 @@ function Body({ isPc }: Props) {
   `;
 
   const [ref, inView] = useInView();
+
+  const [scrollY, setScrollY] = useState(false);
+
+  useEffect(() => {
+    (() => {
+      window.addEventListener("scroll", () =>
+        setScrollY(window.pageYOffset === 0 ? false : true)
+      );
+    })();
+  });
+
   const [page, setPage] = useState(1);
   if (page === 1 && inView) {
     setPage(page + 1);
   }
-
-  const [modal, setModal] = useState(false);
 
   const { loading, error, data } = useQuery(GetData);
 
@@ -185,9 +194,13 @@ function Body({ isPc }: Props) {
     <div className="body">
       <div className="void" />
       <Carousel data={data?.banner} isPc={isPc} />
-      <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
-        <GrLinkTop className="icon-to-top" />
-      </div>
+      {scrollY ? (
+        <div className="navigater" onClick={() => window.scrollTo(0, 0)}>
+          <GrLinkTop className="icon-to-top" />
+        </div>
+      ) : (
+        ""
+      )}
       <Menu menu={data?.menu1} name="menu1" isPc={isPc} />
       {!isPc ? <div className="line" /> : ""}
       <Title title={"Just Dropped"} subTitle={"발매 상품"} />
