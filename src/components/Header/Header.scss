@@ -32,7 +32,12 @@
 }
 
 .header-bottom {
-  height: 66px;
+  @include view("pc") {
+    height: 67px;
+  }
+  @include view("mobile") {
+    height: 60px;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,11 +57,18 @@
 }
 
 .logo {
-  width: 135px;
-  height: 45px;
-  margin-left: 15px;
   &:hover {
     cursor: pointer;
+  }
+  @include view("pc") {
+    height: 45px;
+    margin-left: 15px;
+    width: 135px;
+  }
+  @include view("mobile") {
+    height: 36px;
+    width: 125px;
+    margin-left: 9px;
   }
 }
 

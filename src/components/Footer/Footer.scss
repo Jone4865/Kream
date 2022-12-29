@@ -1,6 +1,7 @@
 @import "../../../public/scss/style.scss";
 
 .footer-top {
+  margin-top: 25px;
   @include view("pc") {
     display: flex;
   }
@@ -41,7 +42,7 @@
   @include view("mobile") {
     flex-direction: column-reverse;
   }
-  width: 95%;
+  width: 91%;
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px rgba(128, 128, 128, 0.217);
@@ -54,7 +55,7 @@
 }
 
 .footer-mid-body1-items {
-  margin: 30px 15px;
+  margin: 30px 0;
 }
 
 .footer-mid-body1-item {
@@ -67,7 +68,7 @@
 }
 
 .footer-mid-body2 {
-  padding: 30px 30px 30px 10px;
+  padding: 30px 30px 30px 0;
 }
 
 .footer-mid-body2-item1 {
@@ -93,7 +94,7 @@
 }
 
 .footer-bottom {
-  width: 95%;
+  width: 90.5%;
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -168,7 +169,7 @@
     margin-left: -10px;
   }
   font-size: 25px;
-  padding: 15px 5px 0 0;
+  padding: 15px 0 0 0;
   * {
     margin: 10px;
     &:hover {

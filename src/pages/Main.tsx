@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
-import Body from '../components/Body/Body';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import Side from '../components/Side/Side';
+import React, { useEffect, useState } from "react";
+import Body from "../components/Body/Body";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Side from "../components/Side/Side";
 import usePc from "../hooks/usePc/usePc";
 
 function Main() {
   const [modal, setModal] = useState(false);
 
-  const modalSet = (modal:boolean) => {
+  const modalSet = (modal: boolean) => {
     setModal(modal);
-  }
+  };
 
   let isPc = false;
 
@@ -20,18 +20,20 @@ function Main() {
     isPc = false;
   }
 
-  if (modal) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "unset";
-  }
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [modal]);
 
   return (
-    <div className='main'> 
+    <div className="main">
       <Header isPc={isPc} modal={modal} modalSet={modalSet} />
-      {modal && !isPc ? <Side modal={modal} modalSet={modalSet} /> : ""}
-      <Body isPc={isPc}/>
-      <Footer isPc={isPc}/>
+      <Side modal={modal} modalSet={modalSet} />
+      <Body isPc={isPc} />
+      <Footer isPc={isPc} />
     </div>
   );
 }

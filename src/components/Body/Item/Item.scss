@@ -16,7 +16,7 @@
 .goods-element {
   display: flex;
   @include view("pc") {
-    margin: auto 10px 30px auto;
+    margin: auto 10px;
     -ms-overflow-style: none;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -34,9 +34,9 @@
 
 .goods-body {
   flex-direction: column;
-  margin: 10px auto;
+  margin: 0 auto;
   @include view("pc") {
-    width: 21%;
+    width: 23.4%;
     div {
       &:hover {
         cursor: pointer;
@@ -81,7 +81,7 @@
 }
 
 .goods-bottom {
-  width: 97%;
+  width: 91%;
   @include view("mobile") {
     margin-left: 10px;
   }
@@ -116,7 +116,7 @@
 
 .more-button {
   width: 100px;
-  margin: 0 auto 25px auto;
+  margin: 20px auto;
   background-color: white;
   height: 40px;
   border: solid 1px rgba(128, 128, 128, 0.296);
