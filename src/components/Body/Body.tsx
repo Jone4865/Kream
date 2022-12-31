@@ -186,7 +186,7 @@ function Body({ isPc }: Props) {
   }
 
   const { loading, error, data } = useQuery(GetData);
-
+console.log(data)
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error :(</p>;
 
