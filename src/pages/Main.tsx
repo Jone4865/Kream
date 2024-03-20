@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Body from "../components/Body/Body";
-import Footer from "../components/Footer/Footer";
+import usePc from "../hooks/usePc/usePc";
 import Header from "../components/Header/Header";
 import Side from "../components/Side/Side";
-import usePc from "../hooks/usePc/usePc";
+import Body from "../components/Body/Body";
+import Footer from "../components/Footer/Footer";
+
 
 function Main() {
   const [modal, setModal] = useState(false);
